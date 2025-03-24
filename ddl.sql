@@ -1,4 +1,4 @@
-CREATE TABLE neighborhood(
+CREATE TABLE neighborhoods(
     name VARCHAR(60) NOT NULL,
     district VARCHAR(60),
     description VARCHAR(600),
@@ -6,7 +6,7 @@ CREATE TABLE neighborhood(
 );
 
 -- lookup table for the role
-CREATE TABLE role(
+CREATE TABLE roles(
     name VARCHAR(20) NOT NULL,
     CONSTRAINT PK_name PRIMARY KEY (name)
 );
@@ -31,7 +31,7 @@ CREATE TABLE users(
 );
 
 -- lookup table for the status
-CREATE TABLE status(
+CREATE TABLE statuses(
     name VARCHAR(20) NOT NULL,
     CONSTRAINT PK_name PRIMARY KEY (name)
 );
@@ -48,7 +48,7 @@ CREATE TABLE volunteers(
     CONSTRAINT CK_vid UNIQUE (vid)
 );
 
-CREATE TABLE permit(
+CREATE TABLE permits(
     permitId VARCHAR(40) NOT NULL,
     rid INT NOT NULL,
     permitStatus VARCHAR(20) NOT NULL,
@@ -97,7 +97,7 @@ CREATE TABLE treePlantings(
 );
 
 -- lookup table for the feedback
-CREATE TABLE feedback(
+CREATE TABLE feedbacks(
     name VARCHAR(20) NOT NULL,
     CONSTRAINT PK_feedback PRIMARY KEY (name)
 );
@@ -115,7 +115,7 @@ CREATE TABLE volunteerPlants(
 );
 
 -- plantingZones table.
-CREATE TABLE plantingZones (
+CREATE TABLE plantingZones(
    zoneID INT AUTO_INCREMENT PRIMARY KEY , -- PK and SK
    hashSites BOOLEAN,
    nearBayLocation BOOLEAN,
@@ -124,7 +124,7 @@ CREATE TABLE plantingZones (
 );
 
 -- siteVisits table
-CREATE TABLE siteVisits (
+CREATE TABLE siteVisits(
     siteVisitID INT AUTO_INCREMENT PRIMARY KEY,    -- PK/SK
     siteVisitDate DATE NOT NULL,
     visitStatus BOOLEAN DEFAULT FALSE,
@@ -148,7 +148,7 @@ CREATE TABLE siteVisits (
 
 
 -- trees table.
-CREATE TABLE trees (
+CREATE TABLE trees(
    treeID INT AUTO_INCREMENT PRIMARY KEY, -- PK and SK
    commonName VARCHAR(50) NOT NULL,
    scientificName VARCHAR(50) NOT NULL,
@@ -170,7 +170,7 @@ CREATE TABLE trees (
 );
 
 -- recommendedTrees table
-CREATE TABLE recommendedTrees (
+CREATE TABLE recommendedTrees(
     visitID INT PRIMARY KEY,
     treeID INT,
 

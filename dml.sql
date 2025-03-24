@@ -1,21 +1,21 @@
-INSERT INTO role VALUES
+INSERT INTO roles VALUES
     ('admin'),
     ('resident'),
     ('volunteer');
 
-INSERT INTO status VALUES
+INSERT INTO statuses VALUES
     ('submitted'),
     ('pending'),
     ('approved'),
     ('rejected');
 
-INSERT INTO feedback VALUES
+INSERT INTO feedbacks VALUES
     ('light'),
     ('moderate'),
     ('heavy'),
     ('overload');
 
-INSERT INTO neighborhood VALUES
+INSERT INTO neighborhoods VALUES
     ('Fairview Park','North Oakland','This neighborhood is also considered part of Rockridge or Lower Rockridge, especially the portion south of Alcatraz Avenue. The Fairview Park name arose when the Berkeley Development Company filed a tract map in 1904 covering the area bounded by Dana Street, Alcatraz Avenue, College Avenue, and as far north as the houses on the north side of Woolsey Street between Dana and College.'),
     ('Rockridge','North Oakland','Rockridge is a residential and commercial neighborhood of North Oakland, also known as Lower Rockridge per the map above. The first homes were built in the 1880s (a few still remain), with most of the housing built after 1906 through the 1920s. It spans from 51st Street to Claremont Avenue to Alcatraz, the Berkeley Boarder, and back to Broadway.'),
     ('Bushrod','North Oakland','The Bushrod neighborhood of North Oakland that contains Bushrod Park and one of the best Ethiopian restaurants this side of the Nile, Cafe Colucci. The neighborhood is most likely named for the park. The park is named for Dr. Bushrod Washington James, who owned the land where the park is now and donated it for a park.'),
@@ -192,45 +192,45 @@ INSERT INTO volunteers (vid, applicationStatus, availability) VALUES ('99', 'pen
 INSERT INTO volunteers (vid, applicationStatus, availability) VALUES ('100', 'approved', '1');
 
 -- permit test data
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('ffbd6a6f-835c-48cf-ad22-1c63a8284d07', '11', 'pending', '2005-08-14T09:32:05.652');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('4a185cbf-8b43-4ecf-8c98-77f523ec424b', '12', 'rejected', '2018-09-11T20:42:30.935');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('4c2d8570-047b-4244-8837-9a5877b07395', '13', 'approved', '2008-01-06T00:51:08.020');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('7a3a5ce7-4834-4c4b-a777-a280e1b6fddd', '14', 'rejected', '2024-02-03T10:22:40.965');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('67e2f1a4-81c9-4825-808d-66d1329ea4bc', '15', 'rejected', '1995-03-08T20:08:10.484');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('e519f82f-f69f-4acf-9cff-d4d2b5ff07ed', '16', 'approved', '1999-11-03T08:18:34.824');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('d0fbf162-819c-4ccf-94c5-a5111f3ee464', '17', 'pending', '1996-12-10T08:36:49.483');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('c7e48003-865e-4093-afd2-4b19bb14ca7f', '18', 'pending', '2022-06-15T19:34:53.133');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('4d916b51-6f10-4483-8dc1-bd2bcebcaeb4', '19', 'submitted', '2000-09-27T21:53:41.536');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('ecbb64f2-d662-4851-be5b-bfa972bd233d', '20', 'approved', '2005-04-20T16:50:02.497');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('d7f1c79e-99e5-4054-8f26-fbf6253cb669', '21', 'submitted', '2023-01-01T11:47:12.921');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('cce57951-6c9d-4f83-b9d8-181f4fe224e6', '22', 'approved', '2004-02-15T15:08:31.031');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('7c56354f-5fb6-4856-9b39-3dc1a170e84c', '23', 'approved', '2006-12-16T11:44:35.561');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('76da15da-9e87-458f-9b66-d2d64bd654fa', '24', 'pending', '1998-12-23T00:06:31.359');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('01d4548b-cb17-47d4-a173-978d211b6d1a', '25', 'approved', '1999-07-27T10:36:24.705');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('dbd1874c-c4bf-40e5-bc94-25546d529de9', '26', 'pending', '1990-09-02T20:45:13.510');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('b6eacab4-44e4-45f3-986e-c0f294a76242', '27', 'pending', '2014-03-12T05:22:44.624');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('a54b961f-8aed-47a9-92d7-72a30f0a8f21', '28', 'submitted', '1999-08-20T17:20:03.106');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('6272f15e-305c-431e-9b87-fb8516096055', '29', 'approved', '1990-11-11T11:25:10.389');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('a6447454-3748-4cca-b83c-bb66cdf03892', '30', 'rejected', '2017-04-28T07:26:02.008');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('a5cbafe1-f558-42ff-af08-fe41d23b1f4f', '31', 'pending', '2010-12-04T22:43:57.647');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('3b72f4fe-ce62-4415-9056-49fd9320b95f', '32', 'pending', '2013-07-23T07:23:34.664');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('dbd786c4-8511-4b12-b515-0ae988e9e550', '33', 'rejected', '2021-01-19T19:47:38.972');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('09b1060f-91c5-4eda-a156-7a97044dc0ba', '34', 'pending', '1997-06-19T04:18:48.049');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('ccce066b-c299-41ad-9ccf-c8cee5985d3d', '35', 'submitted', '2021-10-22T16:08:33.280');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('6850b77e-337c-456a-bd8c-48da516dd11a', '36', 'submitted', '2013-05-17T07:38:10.931');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('1ec66447-27d6-4bd1-a6dd-6096bda9971d', '37', 'submitted', '2014-10-20T11:48:09.795');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('5a4626b6-692d-4a12-84f9-82bee13f777b', '38', 'rejected', '2000-12-19T00:33:18.995');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('e0844e51-7e7a-44f8-b96e-6d68c4ecfd87', '39', 'approved', '2014-05-08T23:55:25.929');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('399b8fa8-06f7-43dc-b929-5a76cf631d28', '40', 'pending', '2018-06-24T01:42:52.546');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('25f855d5-a19d-426b-9447-338fa8ea835d', '41', 'submitted', '2021-04-06T01:55:28.771');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('bc8f679c-1dca-4050-a823-f1e72269e5f6', '42', 'submitted', '2012-12-22T23:51:56.733');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('ea7d131a-7e70-46c4-9533-445ab76314be', '43', 'submitted', '2023-01-13T18:15:31.182');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('e8df3a6a-7afc-480c-86ac-05e7aa4b547d', '44', 'rejected', '2020-12-31T01:59:22.671');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('d7e8fc5d-fde5-414f-91bc-44501cc0052f', '45', 'approved', '1999-10-15T10:11:01.854');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('fe2ecad1-01af-47a5-a893-c4ba1f0a2b7c', '46', 'rejected', '1990-04-22T23:27:17.886');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('817d5a21-7057-45d7-bc19-e7dc3f2efc25', '47', 'rejected', '2022-10-17T04:59:15.452');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('200b2557-d215-42fd-a1a5-c59c10d59c23', '48', 'pending', '2009-07-10T23:43:36.481');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('b334e2ff-7402-4413-b770-ea2af6d484c6', '49', 'rejected', '2018-03-15T06:02:08.836');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('ffbd6a6f-835c-48cf-ad22-1c63a8284d07', '11', 'pending', '2005-08-14T09:32:05.652');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('4a185cbf-8b43-4ecf-8c98-77f523ec424b', '12', 'rejected', '2018-09-11T20:42:30.935');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('4c2d8570-047b-4244-8837-9a5877b07395', '13', 'approved', '2008-01-06T00:51:08.020');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('7a3a5ce7-4834-4c4b-a777-a280e1b6fddd', '14', 'rejected', '2024-02-03T10:22:40.965');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('67e2f1a4-81c9-4825-808d-66d1329ea4bc', '15', 'rejected', '1995-03-08T20:08:10.484');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('e519f82f-f69f-4acf-9cff-d4d2b5ff07ed', '16', 'approved', '1999-11-03T08:18:34.824');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('d0fbf162-819c-4ccf-94c5-a5111f3ee464', '17', 'pending', '1996-12-10T08:36:49.483');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('c7e48003-865e-4093-afd2-4b19bb14ca7f', '18', 'pending', '2022-06-15T19:34:53.133');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('4d916b51-6f10-4483-8dc1-bd2bcebcaeb4', '19', 'submitted', '2000-09-27T21:53:41.536');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('ecbb64f2-d662-4851-be5b-bfa972bd233d', '20', 'approved', '2005-04-20T16:50:02.497');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('d7f1c79e-99e5-4054-8f26-fbf6253cb669', '21', 'submitted', '2023-01-01T11:47:12.921');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('cce57951-6c9d-4f83-b9d8-181f4fe224e6', '22', 'approved', '2004-02-15T15:08:31.031');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('7c56354f-5fb6-4856-9b39-3dc1a170e84c', '23', 'approved', '2006-12-16T11:44:35.561');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('76da15da-9e87-458f-9b66-d2d64bd654fa', '24', 'pending', '1998-12-23T00:06:31.359');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('01d4548b-cb17-47d4-a173-978d211b6d1a', '25', 'approved', '1999-07-27T10:36:24.705');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('dbd1874c-c4bf-40e5-bc94-25546d529de9', '26', 'pending', '1990-09-02T20:45:13.510');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('b6eacab4-44e4-45f3-986e-c0f294a76242', '27', 'pending', '2014-03-12T05:22:44.624');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('a54b961f-8aed-47a9-92d7-72a30f0a8f21', '28', 'submitted', '1999-08-20T17:20:03.106');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('6272f15e-305c-431e-9b87-fb8516096055', '29', 'approved', '1990-11-11T11:25:10.389');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('a6447454-3748-4cca-b83c-bb66cdf03892', '30', 'rejected', '2017-04-28T07:26:02.008');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('a5cbafe1-f558-42ff-af08-fe41d23b1f4f', '31', 'pending', '2010-12-04T22:43:57.647');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('3b72f4fe-ce62-4415-9056-49fd9320b95f', '32', 'pending', '2013-07-23T07:23:34.664');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('dbd786c4-8511-4b12-b515-0ae988e9e550', '33', 'rejected', '2021-01-19T19:47:38.972');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('09b1060f-91c5-4eda-a156-7a97044dc0ba', '34', 'pending', '1997-06-19T04:18:48.049');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('ccce066b-c299-41ad-9ccf-c8cee5985d3d', '35', 'submitted', '2021-10-22T16:08:33.280');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('6850b77e-337c-456a-bd8c-48da516dd11a', '36', 'submitted', '2013-05-17T07:38:10.931');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('1ec66447-27d6-4bd1-a6dd-6096bda9971d', '37', 'submitted', '2014-10-20T11:48:09.795');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('5a4626b6-692d-4a12-84f9-82bee13f777b', '38', 'rejected', '2000-12-19T00:33:18.995');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('e0844e51-7e7a-44f8-b96e-6d68c4ecfd87', '39', 'approved', '2014-05-08T23:55:25.929');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('399b8fa8-06f7-43dc-b929-5a76cf631d28', '40', 'pending', '2018-06-24T01:42:52.546');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('25f855d5-a19d-426b-9447-338fa8ea835d', '41', 'submitted', '2021-04-06T01:55:28.771');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('bc8f679c-1dca-4050-a823-f1e72269e5f6', '42', 'submitted', '2012-12-22T23:51:56.733');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('ea7d131a-7e70-46c4-9533-445ab76314be', '43', 'submitted', '2023-01-13T18:15:31.182');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('e8df3a6a-7afc-480c-86ac-05e7aa4b547d', '44', 'rejected', '2020-12-31T01:59:22.671');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('d7e8fc5d-fde5-414f-91bc-44501cc0052f', '45', 'approved', '1999-10-15T10:11:01.854');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('fe2ecad1-01af-47a5-a893-c4ba1f0a2b7c', '46', 'rejected', '1990-04-22T23:27:17.886');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('817d5a21-7057-45d7-bc19-e7dc3f2efc25', '47', 'rejected', '2022-10-17T04:59:15.452');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('200b2557-d215-42fd-a1a5-c59c10d59c23', '48', 'pending', '2009-07-10T23:43:36.481');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('b334e2ff-7402-4413-b770-ea2af6d484c6', '49', 'rejected', '2018-03-15T06:02:08.836');
 
 -- treeRequest test data
 INSERT INTO treeRequests (referenceNum, rid, streetAddress, zipCode, phone, amountOfPayment, relationshipToProperty, dateSubmitted, requestStatus, neighborhood) VALUES ('1fef06e1-a710-4e05-b921-b84e40c41ea2', '23', 'N Central Avenue', '83604', '(556)969-0541', '270.44', ' renting tenant', '1991-03-12T04:35:28.140', 'submitted', 'Oak Center');

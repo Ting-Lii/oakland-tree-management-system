@@ -23,9 +23,9 @@ CREATE TABLE users(
     CONSTRAINT PK_uid PRIMARY KEY (uid),
     CONSTRAINT CK_email UNIQUE (email),
     CONSTRAINT FK_role FOREIGN KEY (role)
-        REFERENCES role(name) ON DELETE SET NULL ON UPDATE CASCADE,
+        REFERENCES roles(name) ON DELETE SET NULL ON UPDATE CASCADE,
     CONSTRAINT FK_neighborhood FOREIGN KEY (neighborhood)
-        REFERENCES neighborhood(name) ON DELETE SET NULL ON UPDATE CASCADE,
+        REFERENCES neighborhoods(name) ON DELETE SET NULL ON UPDATE CASCADE,
     CONSTRAINT Check_isvalid_email
         CHECK (email LIKE '%_@_%._%')
 );
@@ -44,7 +44,7 @@ CREATE TABLE volunteers(
     CONSTRAINT FK_volunteer_uid FOREIGN KEY (vid)
         REFERENCES users(uid) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT FK_volunteer_status FOREIGN KEY (applicationStatus)
-        REFERENCES status(name) ON DELETE NO ACTION ON UPDATE NO ACTION,
+        REFERENCES statuses(name) ON DELETE NO ACTION ON UPDATE NO ACTION,
     CONSTRAINT CK_vid UNIQUE (vid)
 );
 
@@ -73,7 +73,7 @@ CREATE TABLE treeRequests(
     CONSTRAINT FK_tree_request_uid FOREIGN KEY (rid)
         REFERENCES users(uid) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT FK_request_neighborhood FOREIGN KEY (neighborhood)
-        REFERENCES neighborhood(name) ON DELETE SET NULL ON UPDATE CASCADE,
+        REFERENCES neighborhoods(name) ON DELETE SET NULL ON UPDATE CASCADE,
     CONSTRAINT check_isvalid_payment
         CHECK ( amountOfPayment >= 0.0 )
 );

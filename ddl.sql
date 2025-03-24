@@ -111,7 +111,9 @@ CREATE TABLE volunteerPlants(
     CONSTRAINT FK_plantID FOREIGN KEY (plantID)
         REFERENCES treePlantings(plantID) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT FK_volunteer_plant_vid FOREIGN KEY (vid)
-        REFERENCES volunteers(vid) ON DELETE NO ACTION ON UPDATE CASCADE
+        REFERENCES volunteers(vid) ON DELETE NO ACTION ON UPDATE CASCADE,
+    CONSTRAINT FK_volunteer_feedback FOREIGN KEY (feedback)
+        REFERENCES feedbacks(name) ON DELETE NO ACTION ON UPDATE CASCADE
 );
 
 -- plantingZones table.

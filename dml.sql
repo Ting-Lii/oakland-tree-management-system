@@ -1,21 +1,21 @@
-INSERT INTO role VALUES
+INSERT INTO roles VALUES
     ('admin'),
     ('resident'),
     ('volunteer');
 
-INSERT INTO status VALUES
+INSERT INTO statuses VALUES
     ('submitted'),
     ('pending'),
     ('approved'),
     ('rejected');
 
-INSERT INTO feedback VALUES
+INSERT INTO feedbacks VALUES
     ('light'),
     ('moderate'),
     ('heavy'),
     ('overload');
 
-INSERT INTO neighborhood VALUES
+INSERT INTO neighborhoods VALUES
     ('Fairview Park','North Oakland','This neighborhood is also considered part of Rockridge or Lower Rockridge, especially the portion south of Alcatraz Avenue. The Fairview Park name arose when the Berkeley Development Company filed a tract map in 1904 covering the area bounded by Dana Street, Alcatraz Avenue, College Avenue, and as far north as the houses on the north side of Woolsey Street between Dana and College.'),
     ('Rockridge','North Oakland','Rockridge is a residential and commercial neighborhood of North Oakland, also known as Lower Rockridge per the map above. The first homes were built in the 1880s (a few still remain), with most of the housing built after 1906 through the 1920s. It spans from 51st Street to Claremont Avenue to Alcatraz, the Berkeley Boarder, and back to Broadway.'),
     ('Bushrod','North Oakland','The Bushrod neighborhood of North Oakland that contains Bushrod Park and one of the best Ethiopian restaurants this side of the Nile, Cafe Colucci. The neighborhood is most likely named for the park. The park is named for Dr. Bushrod Washington James, who owned the land where the park is now and donated it for a park.'),
@@ -38,106 +38,106 @@ INSERT INTO neighborhood VALUES
     ('Acron Indusctrial', 'West Oakland', 'The Acorn Industrial neighborhood of Oakland is just that—industrial. It includes most of the Port of Oakland and a number of businesses related to the port, but there are a few other businesses like Linden Street Brewery, The Dock at Linden Street, and Nellie''s Soulfood. It also includes a large Union Pacific railroad switching yard, and the oft-overlooked Middle Harbor Shoreline Park.');
 
 -- users test data
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('1', 'Leola', 'Swaniawski', 'Margaretta_Jerde@yahoo.com', 'kG7D7qOErnvU6CG', '24043', 'Clawson');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('2', 'Ayla', 'Kulas', 'Marielle.Purdy@gmail.com', 'VPMOiyHElaAgEc5', '57083', 'Santa Fe');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('3', 'Beverly', 'Blanda', 'Brook.Krajcik@hotmail.com', 'q3NJUoE5uuPVxP3', '99108', 'Paradise Park');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('4', 'Jude', 'Towne', 'Amani_Mayert11@hotmail.com', 'cNUuT_1hYhm1eaA', '33556', 'Bushrod');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('5', 'Lonzo', 'Welch', 'Ian.Aufderhar@gmail.com', 'IyeTJGm_eRDUYf0', '39129', 'Acron');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('6', 'Lavonne', 'Ziemann', 'Orrin_Bednar@yahoo.com', 'RceeUDtKhAqMTsO', '15959', 'Paradise Park');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('7', 'Natasha', 'Baumbach', 'Antonette_Ankunding28@gmail.com', 'vhFwNRPZwYip6dO', '00790', 'Acron');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('8', 'Lyda', 'Schneider', 'Katrine25@yahoo.com', 'wqqqNhmWJgAWFKw', '77908', 'McClymonds');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('9', 'Ryder', 'Torphy', 'Valerie97@yahoo.com', 'EiyLHJvxMdUanio', '75103', 'Temescal');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('10', 'Tod', 'Barton', 'Josiane.Becker@yahoo.com', 'BWuekb8JCGTsXIh', '79116', 'Acron');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('11', 'Leon', 'Larkin', 'Will_Brakus@gmail.com', 'VOQpfq5S9_PNKEz', '35328', 'Piedmont Avenue');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('12', 'Sharon', 'Abbott', 'Ben.Stanton4@yahoo.com', 'AzXSHAXq20fslta', '32950', 'Fairview Park');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('13', 'Lavon', 'Funk', 'Hudson66@yahoo.com', 'KyeXB7_0BuxEEqe', '97492', 'Clawson');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('14', 'Cathy', 'Foo', 'Cathy.liu@yahoo.com', 'testpwd', '94143', 'Clawson');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('15', 'Carmine', 'Mayert', 'Kamille_Kutch@yahoo.com', 'XlkDF0Hc7duhTdy', '21640', 'Fairview Park');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('16', 'Kitty', 'Skiles', 'Shania_Boyer33@gmail.com', 'Cv2lwspa_IaOOLj', '48557', 'Golden Gate');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('17', 'Roselyn', 'Herzog', 'Terry1@gmail.com', 'ZNHpqHD9jpNnS4m', '66478', 'Paradise Park');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('18', 'Ora', 'Hauck', 'Bulah17@gmail.com', '4pTWNrPMYZW8wuo', '99485', 'Hoover-Foster');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('19', 'Alford', 'Glover', 'Marcelle_Harvey@gmail.com', 'K9SXmqh4vTLme6D', '69355', 'Santa Fe');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('20', 'Tamia', 'Hansen', 'Emmett_Schmitt40@hotmail.com', 'o6eXnGGugbP0SD7', '08695', 'Rockridge');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('21', 'Braulio', 'Cormier', 'Haley.Cassin@yahoo.com', '2NgOmNIPQq3LVeC', '27851', 'South Prescott');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('22', 'Justyn', 'Torphy', 'Brice91@yahoo.com', 'TLSBlq6ad6uOEPw', '31444', 'South Prescott');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('23', 'Gonzalo', 'Friesen', 'Paige.Hane28@gmail.com', '0heKIHMgSx2pC7D', '75516', 'Mosswood');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('24', 'Pete', 'Kulas', 'Leonie98@gmail.com', 'S46DNoKF_3wAAZp', '69293', 'Golden Gate');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('25', 'Emelia', 'Bayer-Considine', 'Amos.Feest43@yahoo.com', 'Ock6cOhKkT60gc1', '67499', 'Acron Indusctrial');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('26', 'Laney', 'Runolfsson-Sipes', 'Dean_Kris@yahoo.com', '01FuDs4ogDVgNeN', '57823', 'Clawson');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('27', 'Johan', 'Dare', 'Enid_Bode24@gmail.com', 'O1ygIfcyuT995BD', '38629', 'Clawson');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('28', 'Cielo', 'Hauck', 'Josianne_Strosin@hotmail.com', 'b3XZ4_phbo33RP1', '96655', 'McClymonds');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('29', 'Rashawn', 'Hartmann', 'Johnnie_Reinger@gmail.com', 'F_LpRmJtCsKc6x0', '34863', 'Temescal');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('30', 'Lamont', 'Von', 'Eulah.Sanford@hotmail.com', '4LfDSJCfo8buQ5V', '83727', 'Acron Indusctrial');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('31', 'Hilton', 'Reichert-Johnson', 'Cristobal_Mosciski@hotmail.com', '7kPj4vI7Fc3S77D', '60084', 'Temescal');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('32', 'Jaden', 'Kunze', 'Lane_Collins@gmail.com', '9b8z4wyNcWozCcD', '38431', 'Ralph Bunche');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('33', 'Jaden', 'Durgan', 'Clyde.Funk76@gmail.com', 'JuTOKQb_eWLaaHg', '85328', 'Fairview Park');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('34', 'Johathan', 'Simonis', 'Jayde_Lang92@gmail.com', 'dnNXCHBVLtsyZmt', '06708', 'Clawson');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('35', 'Theron', 'Murphy', 'Immanuel.Abernathy@gmail.com', 'RZzUXpNy0ndJmZp', '79459', 'Santa Fe');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('36', 'Zelma', 'Cronin', 'Watson_Moore23@yahoo.com', '2cCdjgfhBbbvOO6', '75318', 'Mosswood');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('37', 'Jed', 'MacGyver', 'Gonzalo.Romaguera92@hotmail.com', 'xyYgTE3LuC6pJmT', '98255', 'Piedmont Avenue');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('38', 'Ariane', 'Daniel', 'Odessa34@gmail.com', 'Cr2vIaqGhgRZrn9', '51000', 'Longfellow');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('39', 'Brennon', 'Mante', 'Maryjane_Abshire3@yahoo.com', 'HeYmu1duStGjzJO', '30447', 'McClymonds');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('40', 'Travis', 'Beer', 'Loyal_Haley@gmail.com', 'InjYQilh3vuY9Ad', '97638', 'Longfellow');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('41', 'Kaylin', 'Parisian', 'Cornell84@hotmail.com', 'GHGuSXEh4x6NpHw', '33844', 'Hoover-Foster');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('42', 'Blake', 'Bins', 'Pinkie_Gulgowski9@hotmail.com', '351ySf6Dt169UEU', '77593', 'Golden Gate');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('43', 'Angela', 'Zemlak', 'Patrick_Jast-Ruecker@hotmail.com', 'q8qrO7x3zixIaEf', '51818', 'South Prescott');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('44', 'Rosalyn', 'Monahan', 'Elton17@yahoo.com', 'bLpL7WgYt07hm5h', '12556', 'Acron Indusctrial');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('45', 'Clement', 'Bednar', 'Stevie42@hotmail.com', 'HwH5PAY830ln0e7', '92153', 'Acron');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('46', 'Owen', 'Nolan', 'Wilton16@yahoo.com', 'e6dJhKchyx_9wFE', '18856', 'Hoover-Foster');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('47', 'Madeline', 'Mann', 'Ilene_Pacocha@yahoo.com', 'vE0bcFJlE5Tggjp', '72028', 'Paradise Park');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('48', 'Marcos', 'Klocko', 'Rosemarie_Toy@hotmail.com', 'NU6Omb14T4vHDPp', '85682', 'Bushrod');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('49', 'Percy', 'Schiller', 'Trevion.Hyatt@gmail.com', 'VafmC7msG_utWuK', '70983', 'Fairview Park');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('50', 'Treva', 'Fay', 'Andreane36@yahoo.com', 'wyMZyWx7b5Uzirf', '01044', 'Piedmont Avenue');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('51', 'Katelynn', 'Braun', 'Gerda51@yahoo.com', 'N1T4fH1uit3lt8V', '65860', 'Ralph Bunche');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('52', 'Bella', 'Barrows', 'Dangelo_Koch65@yahoo.com', 'aJevsUa27xu5YO2', '81785', 'Ralph Bunche');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('53', 'Mack', 'Konopelski', 'Macey.Krajcik25@yahoo.com', 'VkmeMvNp8FU6JxD', '07520', 'Mosswood');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('54', 'Jedediah', 'Halvorson', 'Tressie.Schinner@yahoo.com', 'EBTSMafMWMWpLzd', '69630', 'Longfellow');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('55', 'Helmer', 'Greenholt', 'Patrick.Kohler@yahoo.com', 'ZBUpT2EYdEMhtuA', '32391', 'Prescott');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('56', 'Raymond', 'Abshire', 'Austin70@yahoo.com', '0qsKUx6FFsF6ewC', '79618', 'Acron');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('57', 'Pansy', 'Kihn', 'Don.Koch13@hotmail.com', 'yeb8IUjwx8E6kMw', '25559', 'Clawson');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('58', 'Jena', 'Homenick', 'Anabel_Schamberger57@yahoo.com', 'JzRkxLOzNNd34b6', '12289', 'Golden Gate');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('59', 'Heidi', 'Mertz', 'Mitchell16@hotmail.com', '46z37UvKqMmzAmp', '51004', 'Gaskill');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('60', 'Zelma', 'Wilderman', 'Javon_Hamill@yahoo.com', 'zwVcYL9jM2HNEZb', '15328', 'Oak Center');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('61', 'Darion', 'Moen', 'Julianne_Johnston41@yahoo.com', '7ed6GyL1yTcQvAx', '08480', 'Acron');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('62', 'Beulah', 'Hegmann', 'Destiney40@gmail.com', 'Qfy6ljPiGU07Ylq', '16846', 'Clawson');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('63', 'Lexi', 'Mayer', 'Ricky.Koepp@gmail.com', 'ebOnHrXgHodg5TO', '00313', 'Santa Fe');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('64', 'Timmy', 'Feil', 'Litzy.Swift13@yahoo.com', 'PuMAZNfyStvHJBt', '78523', 'Oak Center');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('65', 'Breana', 'Senger', 'Kareem.Lang@yahoo.com', 'kVqFUaxmlXR2PFP', '45174', 'McClymonds');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('66', 'Isabell', 'Stoltenberg', 'Waldo90@yahoo.com', '2UpDwadnmBx2LHs', '01906', 'Piedmont Avenue');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('67', 'Elwyn', 'Medhurst-Hoeger', 'Suzanne_Kassulke-Ruecker13@gmail.com', '0e5jHKInxrEIWGJ', '59562', 'Paradise Park');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('68', 'Dannie', 'Bernier', 'Coralie.Schmidt92@hotmail.com', 'NR0o32Vi9Od9Jkc', '92304', 'Rockridge');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('69', 'Abigale', 'Altenwerth', 'Jean.Botsford@yahoo.com', 's8iTTe9OP1hGGiV', '60357', 'Longfellow');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('70', 'Angelita', 'Donnelly', 'Dorothy_OReilly@yahoo.com', '9sR3nOmvQ_1g2oE', '89337', 'Oak Center');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('71', 'Reina', 'Legros', 'Shemar_Jacobi87@yahoo.com', '39AkHKJQJeQB0cF', '05450', 'Santa Fe');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('72', 'Winston', 'Koss', 'Kurtis85@yahoo.com', 'bSTbJEV2i9o2ADm', '42710', 'Prescott');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('73', 'Quentin', 'Paucek', 'Vickie10@hotmail.com', 'r2qRFJ8WScGFk7R', '50472', 'Oak Center');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('74', 'Neva', 'Kihn', 'Donna.Mitchell39@hotmail.com', 'z7qjizO22E345SY', '91232', 'South Prescott');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('75', 'Rosanna', 'Donnelly', 'Eileen12@gmail.com', 'alqJJZFiazSLOEM', '45731', 'Mosswood');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('76', 'Ursula', 'Robel', 'Cody82@gmail.com', 'fSE6Vm7LOjpQodt', '30424', 'McClymonds');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('77', 'Howell', 'Satterfield', 'Odessa66@gmail.com', 'KUJcOxxqGxPxYlZ', '24168', 'Santa Fe');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('78', 'Priscilla', 'Kohler', 'Elvera.Kris@hotmail.com', 'VqVAplBn52sVVp5', '80079', 'Rockridge');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('79', 'Elinore', 'Borer', 'Alexandre11@hotmail.com', 'N_IUsX6MK6KYHq2', '46351', 'Acron');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('80', 'Tamia', 'Pagac', 'Sophia_Leuschke18@gmail.com', 'NGv4YWpYZD04aQP', '36309', 'Fairview Park');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('81', 'Vito', 'Mann', 'Linwood_McClure@yahoo.com', 'TaPURkXCQwca3WY', '44619', 'Acron Indusctrial');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('82', 'Jovan', 'Mann-Robel', 'Curt42@hotmail.com', 'Hp8zrgN_zKGu479', '06016', 'Ralph Bunche');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('83', 'Dolores', 'Conroy', 'Brady.Crooks@hotmail.com', '40ilKfHa2hmQQDT', '62676', 'Oak Center');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('84', 'Lindsay', 'Jerde', 'Frederique_Rowe-Cummings93@gmail.com', 'mNHO6L7SnWsz_3v', '42460', 'Acron');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('85', 'Eugene', 'Keebler', 'Cecil8@yahoo.com', 'DUEzFJIUOEhEnX8', '15496', 'Paradise Park');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('86', 'Rudy', 'Lang', 'Eldridge_Emard@gmail.com', 'CwWwytdUkt1XWa2', '48524', 'South Prescott');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('87', 'Simeon', 'Brekke', 'Dora_Kiehn@yahoo.com', '7VTunNXzkEkOIHB', '33465', 'South Prescott');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('88', 'Fidel', 'Predovic', 'Elouise18@hotmail.com', 'woszlErmaBxVKKD', '58943', 'Fairview Park');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('89', 'Thad', 'Douglas', 'Keyshawn_Kuhn@yahoo.com', 'DrY4NH62gkogpJG', '42100', 'McClymonds');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('90', 'Mazie', 'Kuhlman', 'Macie_Zieme@yahoo.com', '85jNxqFMYtFTIkY', '74325', 'Ralph Bunche');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('91', 'Thea', 'Nitzsche', 'Fannie_Gutkowski33@yahoo.com', 'Tr7M1E7tC6TMSFg', '18078', 'Gaskill');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('92', 'Rigoberto', 'Murphy', 'Corine_Schmidt@yahoo.com', '8sQCIzl6TsDxukD', '86429', 'Ralph Bunche');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('93', 'Karianne', 'Streich', 'Kamille_Schneider12@gmail.com', 'FBu6XlaieIUsRZD', '22426', 'South Prescott');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('94', 'Elmer', 'Welch', 'Liliane_Glover3@yahoo.com', 'fuyYMmgyviWMyQi', '17444', 'Golden Gate');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('95', 'Marcus', 'Gibson', 'Diana.Skiles31@yahoo.com', '87CN0WyS_8ZpVMK', '97757', 'Temescal');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('96', 'Miles', 'Wisoky', 'Claude_Lueilwitz53@hotmail.com', 'xT_fCl78X6cUe3B', '95318', 'Clawson');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('97', 'Marina', 'Mills', 'Dell98@hotmail.com', 'gakAREPBAAtipDl', '22250', 'Fairview Park');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('98', 'Nichole', 'Greenholt', 'Collin37@gmail.com', 'TvjICQxfB4dAqdb', '09295', 'Clawson');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('99', 'Kaleigh', 'Raynor', 'Chaya_Wiegand83@gmail.com', 'KxscyQ_pXBE6ofP', '59359', 'Acron');
-INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood) VALUES ('100', 'Marian', 'Kulas', 'Wade_Feest-Reichel@hotmail.com', 'eW0dgiS5u43sjGy', '93065', 'Santa Fe');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('1', 'Leola', 'Swaniawski', 'Margaretta_Jerde@yahoo.com', 'kG7D7qOErnvU6CG', '24043', 'Clawson','admin');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('2', 'Ayla', 'Kulas', 'Marielle.Purdy@gmail.com', 'VPMOiyHElaAgEc5', '57083', 'Santa Fe','admin');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('3', 'Beverly', 'Blanda', 'Brook.Krajcik@hotmail.com', 'q3NJUoE5uuPVxP3', '99108', 'Paradise Park','admin');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('4', 'Jude', 'Towne', 'Amani_Mayert11@hotmail.com', 'cNUuT_1hYhm1eaA', '33556', 'Bushrod','admin');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('5', 'Lonzo', 'Welch', 'Ian.Aufderhar@gmail.com', 'IyeTJGm_eRDUYf0', '39129', 'Acron','admin');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('6', 'Lavonne', 'Ziemann', 'Orrin_Bednar@yahoo.com', 'RceeUDtKhAqMTsO', '15959', 'Paradise Park','admin');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('7', 'Natasha', 'Baumbach', 'Antonette_Ankunding28@gmail.com', 'vhFwNRPZwYip6dO', '00790', 'Acron','admin');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('8', 'Lyda', 'Schneider', 'Katrine25@yahoo.com', 'wqqqNhmWJgAWFKw', '77908', 'McClymonds','admin');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('9', 'Ryder', 'Torphy', 'Valerie97@yahoo.com', 'EiyLHJvxMdUanio', '75103', 'Temescal','admin');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('10', 'Tod', 'Barton', 'Josiane.Becker@yahoo.com', 'BWuekb8JCGTsXIh', '79116', 'Acron','admin');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('11', 'Leon', 'Larkin', 'Will_Brakus@gmail.com', 'VOQpfq5S9_PNKEz', '35328', 'Piedmont Avenue', 'resident');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('12', 'Sharon', 'Abbott', 'Ben.Stanton4@yahoo.com', 'AzXSHAXq20fslta', '32950', 'Fairview Park', 'resident');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('13', 'Lavon', 'Funk', 'Hudson66@yahoo.com', 'KyeXB7_0BuxEEqe', '97492', 'Clawson', 'resident');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('14', 'Cathy', 'Foo', 'Cathy.liu@yahoo.com', 'testpwd', '94143', 'Clawson', 'resident');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('15', 'Carmine', 'Mayert', 'Kamille_Kutch@yahoo.com', 'XlkDF0Hc7duhTdy', '21640', 'Fairview Park', 'resident');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('16', 'Kitty', 'Skiles', 'Shania_Boyer33@gmail.com', 'Cv2lwspa_IaOOLj', '48557', 'Golden Gate', 'resident');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('17', 'Roselyn', 'Herzog', 'Terry1@gmail.com', 'ZNHpqHD9jpNnS4m', '66478', 'Paradise Park', 'resident');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('18', 'Ora', 'Hauck', 'Bulah17@gmail.com', '4pTWNrPMYZW8wuo', '99485', 'Hoover-Foster', 'resident');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('19', 'Alford', 'Glover', 'Marcelle_Harvey@gmail.com', 'K9SXmqh4vTLme6D', '69355', 'Santa Fe', 'resident');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('20', 'Tamia', 'Hansen', 'Emmett_Schmitt40@hotmail.com', 'o6eXnGGugbP0SD7', '08695', 'Rockridge', 'resident');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('21', 'Braulio', 'Cormier', 'Haley.Cassin@yahoo.com', '2NgOmNIPQq3LVeC', '27851', 'South Prescott', 'resident');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('22', 'Justyn', 'Torphy', 'Brice91@yahoo.com', 'TLSBlq6ad6uOEPw', '31444', 'South Prescott', 'resident');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('23', 'Gonzalo', 'Friesen', 'Paige.Hane28@gmail.com', '0heKIHMgSx2pC7D', '75516', 'Mosswood', 'resident');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('24', 'Pete', 'Kulas', 'Leonie98@gmail.com', 'S46DNoKF_3wAAZp', '69293', 'Golden Gate', 'resident');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('25', 'Emelia', 'Bayer-Considine', 'Amos.Feest43@yahoo.com', 'Ock6cOhKkT60gc1', '67499', 'Acron Indusctrial', 'resident');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('26', 'Laney', 'Runolfsson-Sipes', 'Dean_Kris@yahoo.com', '01FuDs4ogDVgNeN', '57823', 'Clawson', 'resident');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('27', 'Johan', 'Dare', 'Enid_Bode24@gmail.com', 'O1ygIfcyuT995BD', '38629', 'Clawson', 'resident');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('28', 'Cielo', 'Hauck', 'Josianne_Strosin@hotmail.com', 'b3XZ4_phbo33RP1', '96655', 'McClymonds', 'resident');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('29', 'Rashawn', 'Hartmann', 'Johnnie_Reinger@gmail.com', 'F_LpRmJtCsKc6x0', '34863', 'Temescal', 'resident');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('30', 'Lamont', 'Von', 'Eulah.Sanford@hotmail.com', '4LfDSJCfo8buQ5V', '83727', 'Acron Indusctrial', 'resident');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('31', 'Hilton', 'Reichert-Johnson', 'Cristobal_Mosciski@hotmail.com', '7kPj4vI7Fc3S77D', '60084', 'Temescal', 'resident');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('32', 'Jaden', 'Kunze', 'Lane_Collins@gmail.com', '9b8z4wyNcWozCcD', '38431', 'Ralph Bunche', 'resident');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('33', 'Jaden', 'Durgan', 'Clyde.Funk76@gmail.com', 'JuTOKQb_eWLaaHg', '85328', 'Fairview Park', 'resident');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('34', 'Johathan', 'Simonis', 'Jayde_Lang92@gmail.com', 'dnNXCHBVLtsyZmt', '06708', 'Clawson', 'resident');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('35', 'Theron', 'Murphy', 'Immanuel.Abernathy@gmail.com', 'RZzUXpNy0ndJmZp', '79459', 'Santa Fe', 'resident');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('36', 'Zelma', 'Cronin', 'Watson_Moore23@yahoo.com', '2cCdjgfhBbbvOO6', '75318', 'Mosswood', 'resident');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('37', 'Jed', 'MacGyver', 'Gonzalo.Romaguera92@hotmail.com', 'xyYgTE3LuC6pJmT', '98255', 'Piedmont Avenue', 'resident');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('38', 'Ariane', 'Daniel', 'Odessa34@gmail.com', 'Cr2vIaqGhgRZrn9', '51000', 'Longfellow', 'resident');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('39', 'Brennon', 'Mante', 'Maryjane_Abshire3@yahoo.com', 'HeYmu1duStGjzJO', '30447', 'McClymonds', 'resident');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('40', 'Travis', 'Beer', 'Loyal_Haley@gmail.com', 'InjYQilh3vuY9Ad', '97638', 'Longfellow', 'resident');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('41', 'Kaylin', 'Parisian', 'Cornell84@hotmail.com', 'GHGuSXEh4x6NpHw', '33844', 'Hoover-Foster','resident');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('42', 'Blake', 'Bins', 'Pinkie_Gulgowski9@hotmail.com', '351ySf6Dt169UEU', '77593', 'Golden Gate', 'resident');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('43', 'Angela', 'Zemlak', 'Patrick_Jast-Ruecker@hotmail.com', 'q8qrO7x3zixIaEf', '51818', 'South Prescott', 'resident');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('44', 'Rosalyn', 'Monahan', 'Elton17@yahoo.com', 'bLpL7WgYt07hm5h', '12556', 'Acron Indusctrial', 'resident');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('45', 'Clement', 'Bednar', 'Stevie42@hotmail.com', 'HwH5PAY830ln0e7', '92153', 'Acron', 'resident');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('46', 'Owen', 'Nolan', 'Wilton16@yahoo.com', 'e6dJhKchyx_9wFE', '18856', 'Hoover-Foster', 'resident');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('47', 'Madeline', 'Mann', 'Ilene_Pacocha@yahoo.com', 'vE0bcFJlE5Tggjp', '72028', 'Paradise Park', 'resident');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('48', 'Marcos', 'Klocko', 'Rosemarie_Toy@hotmail.com', 'NU6Omb14T4vHDPp', '85682', 'Bushrod', 'resident');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('49', 'Percy', 'Schiller', 'Trevion.Hyatt@gmail.com', 'VafmC7msG_utWuK', '70983', 'Fairview Park', 'resident');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('50', 'Treva', 'Fay', 'Andreane36@yahoo.com', 'wyMZyWx7b5Uzirf', '01044', 'Piedmont Avenue', 'resident');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('51', 'Katelynn', 'Braun', 'Gerda51@yahoo.com', 'N1T4fH1uit3lt8V', '65860', 'Ralph Bunche', 'volunteer');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('52', 'Bella', 'Barrows', 'Dangelo_Koch65@yahoo.com', 'aJevsUa27xu5YO2', '81785', 'Ralph Bunche', 'volunteer');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('53', 'Mack', 'Konopelski', 'Macey.Krajcik25@yahoo.com', 'VkmeMvNp8FU6JxD', '07520', 'Mosswood', 'volunteer');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('54', 'Jedediah', 'Halvorson', 'Tressie.Schinner@yahoo.com', 'EBTSMafMWMWpLzd', '69630', 'Longfellow', 'volunteer');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('55', 'Helmer', 'Greenholt', 'Patrick.Kohler@yahoo.com', 'ZBUpT2EYdEMhtuA', '32391', 'Prescott', 'volunteer');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('56', 'Raymond', 'Abshire', 'Austin70@yahoo.com', '0qsKUx6FFsF6ewC', '79618', 'Acron', 'volunteer');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('57', 'Pansy', 'Kihn', 'Don.Koch13@hotmail.com', 'yeb8IUjwx8E6kMw', '25559', 'Clawson', 'volunteer');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('58', 'Jena', 'Homenick', 'Anabel_Schamberger57@yahoo.com', 'JzRkxLOzNNd34b6', '12289', 'Golden Gate', 'volunteer');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('59', 'Heidi', 'Mertz', 'Mitchell16@hotmail.com', '46z37UvKqMmzAmp', '51004', 'Gaskill', 'volunteer');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('60', 'Zelma', 'Wilderman', 'Javon_Hamill@yahoo.com', 'zwVcYL9jM2HNEZb', '15328', 'Oak Center', 'volunteer');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('61', 'Darion', 'Moen', 'Julianne_Johnston41@yahoo.com', '7ed6GyL1yTcQvAx', '08480', 'Acron', 'volunteer');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('62', 'Beulah', 'Hegmann', 'Destiney40@gmail.com', 'Qfy6ljPiGU07Ylq', '16846', 'Clawson', 'volunteer');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('63', 'Lexi', 'Mayer', 'Ricky.Koepp@gmail.com', 'ebOnHrXgHodg5TO', '00313', 'Santa Fe', 'volunteer');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('64', 'Timmy', 'Feil', 'Litzy.Swift13@yahoo.com', 'PuMAZNfyStvHJBt', '78523', 'Oak Center', 'volunteer');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('65', 'Breana', 'Senger', 'Kareem.Lang@yahoo.com', 'kVqFUaxmlXR2PFP', '45174', 'McClymonds', 'volunteer');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('66', 'Isabell', 'Stoltenberg', 'Waldo90@yahoo.com', '2UpDwadnmBx2LHs', '01906', 'Piedmont Avenue', 'volunteer');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('67', 'Elwyn', 'Medhurst-Hoeger', 'Suzanne_Kassulke-Ruecker13@gmail.com', '0e5jHKInxrEIWGJ', '59562', 'Paradise Park', 'volunteer');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('68', 'Dannie', 'Bernier', 'Coralie.Schmidt92@hotmail.com', 'NR0o32Vi9Od9Jkc', '92304', 'Rockridge', 'volunteer');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('69', 'Abigale', 'Altenwerth', 'Jean.Botsford@yahoo.com', 's8iTTe9OP1hGGiV', '60357', 'Longfellow', 'volunteer');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('70', 'Angelita', 'Donnelly', 'Dorothy_OReilly@yahoo.com', '9sR3nOmvQ_1g2oE', '89337', 'Oak Center', 'volunteer');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('71', 'Reina', 'Legros', 'Shemar_Jacobi87@yahoo.com', '39AkHKJQJeQB0cF', '05450', 'Santa Fe', 'volunteer');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('72', 'Winston', 'Koss', 'Kurtis85@yahoo.com', 'bSTbJEV2i9o2ADm', '42710', 'Prescott', 'volunteer');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('73', 'Quentin', 'Paucek', 'Vickie10@hotmail.com', 'r2qRFJ8WScGFk7R', '50472', 'Oak Center', 'volunteer');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('74', 'Neva', 'Kihn', 'Donna.Mitchell39@hotmail.com', 'z7qjizO22E345SY', '91232', 'South Prescott', 'volunteer');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('75', 'Rosanna', 'Donnelly', 'Eileen12@gmail.com', 'alqJJZFiazSLOEM', '45731', 'Mosswood', 'volunteer');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('76', 'Ursula', 'Robel', 'Cody82@gmail.com', 'fSE6Vm7LOjpQodt', '30424', 'McClymonds', 'volunteer');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('77', 'Howell', 'Satterfield', 'Odessa66@gmail.com', 'KUJcOxxqGxPxYlZ', '24168', 'Santa Fe', 'volunteer');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('78', 'Priscilla', 'Kohler', 'Elvera.Kris@hotmail.com', 'VqVAplBn52sVVp5', '80079', 'Rockridge', 'volunteer');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('79', 'Elinore', 'Borer', 'Alexandre11@hotmail.com', 'N_IUsX6MK6KYHq2', '46351', 'Acron', 'volunteer');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('80', 'Tamia', 'Pagac', 'Sophia_Leuschke18@gmail.com', 'NGv4YWpYZD04aQP', '36309', 'Fairview Park', 'volunteer');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('81', 'Vito', 'Mann', 'Linwood_McClure@yahoo.com', 'TaPURkXCQwca3WY', '44619', 'Acron Indusctrial', 'volunteer');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('82', 'Jovan', 'Mann-Robel', 'Curt42@hotmail.com', 'Hp8zrgN_zKGu479', '06016', 'Ralph Bunche', 'volunteer');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('83', 'Dolores', 'Conroy', 'Brady.Crooks@hotmail.com', '40ilKfHa2hmQQDT', '62676', 'Oak Center', 'volunteer');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('84', 'Lindsay', 'Jerde', 'Frederique_Rowe-Cummings93@gmail.com', 'mNHO6L7SnWsz_3v', '42460', 'Acron', 'volunteer');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('85', 'Eugene', 'Keebler', 'Cecil8@yahoo.com', 'DUEzFJIUOEhEnX8', '15496', 'Paradise Park', 'volunteer');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('86', 'Rudy', 'Lang', 'Eldridge_Emard@gmail.com', 'CwWwytdUkt1XWa2', '48524', 'South Prescott', 'volunteer');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('87', 'Simeon', 'Brekke', 'Dora_Kiehn@yahoo.com', '7VTunNXzkEkOIHB', '33465', 'South Prescott', 'volunteer');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('88', 'Fidel', 'Predovic', 'Elouise18@hotmail.com', 'woszlErmaBxVKKD', '58943', 'Fairview Park', 'volunteer');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('89', 'Thad', 'Douglas', 'Keyshawn_Kuhn@yahoo.com', 'DrY4NH62gkogpJG', '42100', 'McClymonds', 'volunteer');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('90', 'Mazie', 'Kuhlman', 'Macie_Zieme@yahoo.com', '85jNxqFMYtFTIkY', '74325', 'Ralph Bunche', 'volunteer');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('91', 'Thea', 'Nitzsche', 'Fannie_Gutkowski33@yahoo.com', 'Tr7M1E7tC6TMSFg', '18078', 'Gaskill', 'volunteer');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('92', 'Rigoberto', 'Murphy', 'Corine_Schmidt@yahoo.com', '8sQCIzl6TsDxukD', '86429', 'Ralph Bunche', 'volunteer');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('93', 'Karianne', 'Streich', 'Kamille_Schneider12@gmail.com', 'FBu6XlaieIUsRZD', '22426', 'South Prescott', 'volunteer');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('94', 'Elmer', 'Welch', 'Liliane_Glover3@yahoo.com', 'fuyYMmgyviWMyQi', '17444', 'Golden Gate', 'volunteer');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('95', 'Marcus', 'Gibson', 'Diana.Skiles31@yahoo.com', '87CN0WyS_8ZpVMK', '97757', 'Temescal', 'volunteer');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('96', 'Miles', 'Wisoky', 'Claude_Lueilwitz53@hotmail.com', 'xT_fCl78X6cUe3B', '95318', 'Clawson', 'volunteer');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('97', 'Marina', 'Mills', 'Dell98@hotmail.com', 'gakAREPBAAtipDl', '22250', 'Fairview Park', 'volunteer');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('98', 'Nichole', 'Greenholt', 'Collin37@gmail.com', 'TvjICQxfB4dAqdb', '09295', 'Clawson', 'volunteer');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('99', 'Kaleigh', 'Raynor', 'Chaya_Wiegand83@gmail.com', 'KxscyQ_pXBE6ofP', '59359', 'Acron', 'volunteer');
+INSERT INTO users (uid, firstName, lastName, email, password, zipCode, neighborhood, role) VALUES ('100', 'Marian', 'Kulas', 'Wade_Feest-Reichel@hotmail.com', 'eW0dgiS5u43sjGy', '93065', 'Santa Fe', 'volunteer');
 
 -- volunteer test data
 INSERT INTO volunteers (vid, applicationStatus, availability) VALUES ('51', 'approved', '1');
@@ -192,45 +192,45 @@ INSERT INTO volunteers (vid, applicationStatus, availability) VALUES ('99', 'pen
 INSERT INTO volunteers (vid, applicationStatus, availability) VALUES ('100', 'approved', '1');
 
 -- permit test data
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('ffbd6a6f-835c-48cf-ad22-1c63a8284d07', '11', 'pending', '2005-08-14T09:32:05.652');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('4a185cbf-8b43-4ecf-8c98-77f523ec424b', '12', 'rejected', '2018-09-11T20:42:30.935');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('4c2d8570-047b-4244-8837-9a5877b07395', '13', 'approved', '2008-01-06T00:51:08.020');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('7a3a5ce7-4834-4c4b-a777-a280e1b6fddd', '14', 'rejected', '2024-02-03T10:22:40.965');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('67e2f1a4-81c9-4825-808d-66d1329ea4bc', '15', 'rejected', '1995-03-08T20:08:10.484');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('e519f82f-f69f-4acf-9cff-d4d2b5ff07ed', '16', 'approved', '1999-11-03T08:18:34.824');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('d0fbf162-819c-4ccf-94c5-a5111f3ee464', '17', 'pending', '1996-12-10T08:36:49.483');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('c7e48003-865e-4093-afd2-4b19bb14ca7f', '18', 'pending', '2022-06-15T19:34:53.133');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('4d916b51-6f10-4483-8dc1-bd2bcebcaeb4', '19', 'submitted', '2000-09-27T21:53:41.536');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('ecbb64f2-d662-4851-be5b-bfa972bd233d', '20', 'approved', '2005-04-20T16:50:02.497');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('d7f1c79e-99e5-4054-8f26-fbf6253cb669', '21', 'submitted', '2023-01-01T11:47:12.921');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('cce57951-6c9d-4f83-b9d8-181f4fe224e6', '22', 'approved', '2004-02-15T15:08:31.031');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('7c56354f-5fb6-4856-9b39-3dc1a170e84c', '23', 'approved', '2006-12-16T11:44:35.561');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('76da15da-9e87-458f-9b66-d2d64bd654fa', '24', 'pending', '1998-12-23T00:06:31.359');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('01d4548b-cb17-47d4-a173-978d211b6d1a', '25', 'approved', '1999-07-27T10:36:24.705');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('dbd1874c-c4bf-40e5-bc94-25546d529de9', '26', 'pending', '1990-09-02T20:45:13.510');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('b6eacab4-44e4-45f3-986e-c0f294a76242', '27', 'pending', '2014-03-12T05:22:44.624');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('a54b961f-8aed-47a9-92d7-72a30f0a8f21', '28', 'submitted', '1999-08-20T17:20:03.106');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('6272f15e-305c-431e-9b87-fb8516096055', '29', 'approved', '1990-11-11T11:25:10.389');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('a6447454-3748-4cca-b83c-bb66cdf03892', '30', 'rejected', '2017-04-28T07:26:02.008');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('a5cbafe1-f558-42ff-af08-fe41d23b1f4f', '31', 'pending', '2010-12-04T22:43:57.647');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('3b72f4fe-ce62-4415-9056-49fd9320b95f', '32', 'pending', '2013-07-23T07:23:34.664');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('dbd786c4-8511-4b12-b515-0ae988e9e550', '33', 'rejected', '2021-01-19T19:47:38.972');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('09b1060f-91c5-4eda-a156-7a97044dc0ba', '34', 'pending', '1997-06-19T04:18:48.049');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('ccce066b-c299-41ad-9ccf-c8cee5985d3d', '35', 'submitted', '2021-10-22T16:08:33.280');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('6850b77e-337c-456a-bd8c-48da516dd11a', '36', 'submitted', '2013-05-17T07:38:10.931');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('1ec66447-27d6-4bd1-a6dd-6096bda9971d', '37', 'submitted', '2014-10-20T11:48:09.795');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('5a4626b6-692d-4a12-84f9-82bee13f777b', '38', 'rejected', '2000-12-19T00:33:18.995');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('e0844e51-7e7a-44f8-b96e-6d68c4ecfd87', '39', 'approved', '2014-05-08T23:55:25.929');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('399b8fa8-06f7-43dc-b929-5a76cf631d28', '40', 'pending', '2018-06-24T01:42:52.546');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('25f855d5-a19d-426b-9447-338fa8ea835d', '41', 'submitted', '2021-04-06T01:55:28.771');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('bc8f679c-1dca-4050-a823-f1e72269e5f6', '42', 'submitted', '2012-12-22T23:51:56.733');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('ea7d131a-7e70-46c4-9533-445ab76314be', '43', 'submitted', '2023-01-13T18:15:31.182');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('e8df3a6a-7afc-480c-86ac-05e7aa4b547d', '44', 'rejected', '2020-12-31T01:59:22.671');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('d7e8fc5d-fde5-414f-91bc-44501cc0052f', '45', 'approved', '1999-10-15T10:11:01.854');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('fe2ecad1-01af-47a5-a893-c4ba1f0a2b7c', '46', 'rejected', '1990-04-22T23:27:17.886');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('817d5a21-7057-45d7-bc19-e7dc3f2efc25', '47', 'rejected', '2022-10-17T04:59:15.452');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('200b2557-d215-42fd-a1a5-c59c10d59c23', '48', 'pending', '2009-07-10T23:43:36.481');
-INSERT INTO permit (permitID, rid, permitStatus, issueDate) VALUES ('b334e2ff-7402-4413-b770-ea2af6d484c6', '49', 'rejected', '2018-03-15T06:02:08.836');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('ffbd6a6f-835c-48cf-ad22-1c63a8284d07', '11', 'pending', '2005-08-14T09:32:05.652');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('4a185cbf-8b43-4ecf-8c98-77f523ec424b', '12', 'rejected', '2018-09-11T20:42:30.935');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('4c2d8570-047b-4244-8837-9a5877b07395', '13', 'approved', '2008-01-06T00:51:08.020');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('7a3a5ce7-4834-4c4b-a777-a280e1b6fddd', '14', 'rejected', '2024-02-03T10:22:40.965');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('67e2f1a4-81c9-4825-808d-66d1329ea4bc', '15', 'rejected', '1995-03-08T20:08:10.484');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('e519f82f-f69f-4acf-9cff-d4d2b5ff07ed', '16', 'approved', '1999-11-03T08:18:34.824');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('d0fbf162-819c-4ccf-94c5-a5111f3ee464', '17', 'pending', '1996-12-10T08:36:49.483');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('c7e48003-865e-4093-afd2-4b19bb14ca7f', '18', 'pending', '2022-06-15T19:34:53.133');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('4d916b51-6f10-4483-8dc1-bd2bcebcaeb4', '19', 'submitted', '2000-09-27T21:53:41.536');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('ecbb64f2-d662-4851-be5b-bfa972bd233d', '20', 'approved', '2005-04-20T16:50:02.497');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('d7f1c79e-99e5-4054-8f26-fbf6253cb669', '21', 'submitted', '2023-01-01T11:47:12.921');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('cce57951-6c9d-4f83-b9d8-181f4fe224e6', '22', 'approved', '2004-02-15T15:08:31.031');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('7c56354f-5fb6-4856-9b39-3dc1a170e84c', '23', 'approved', '2006-12-16T11:44:35.561');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('76da15da-9e87-458f-9b66-d2d64bd654fa', '24', 'pending', '1998-12-23T00:06:31.359');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('01d4548b-cb17-47d4-a173-978d211b6d1a', '25', 'approved', '1999-07-27T10:36:24.705');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('dbd1874c-c4bf-40e5-bc94-25546d529de9', '26', 'pending', '1990-09-02T20:45:13.510');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('b6eacab4-44e4-45f3-986e-c0f294a76242', '27', 'pending', '2014-03-12T05:22:44.624');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('a54b961f-8aed-47a9-92d7-72a30f0a8f21', '28', 'submitted', '1999-08-20T17:20:03.106');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('6272f15e-305c-431e-9b87-fb8516096055', '29', 'approved', '1990-11-11T11:25:10.389');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('a6447454-3748-4cca-b83c-bb66cdf03892', '30', 'rejected', '2017-04-28T07:26:02.008');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('a5cbafe1-f558-42ff-af08-fe41d23b1f4f', '31', 'pending', '2010-12-04T22:43:57.647');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('3b72f4fe-ce62-4415-9056-49fd9320b95f', '32', 'pending', '2013-07-23T07:23:34.664');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('dbd786c4-8511-4b12-b515-0ae988e9e550', '33', 'rejected', '2021-01-19T19:47:38.972');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('09b1060f-91c5-4eda-a156-7a97044dc0ba', '34', 'pending', '1997-06-19T04:18:48.049');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('ccce066b-c299-41ad-9ccf-c8cee5985d3d', '35', 'submitted', '2021-10-22T16:08:33.280');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('6850b77e-337c-456a-bd8c-48da516dd11a', '36', 'submitted', '2013-05-17T07:38:10.931');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('1ec66447-27d6-4bd1-a6dd-6096bda9971d', '37', 'submitted', '2014-10-20T11:48:09.795');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('5a4626b6-692d-4a12-84f9-82bee13f777b', '38', 'rejected', '2000-12-19T00:33:18.995');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('e0844e51-7e7a-44f8-b96e-6d68c4ecfd87', '39', 'approved', '2014-05-08T23:55:25.929');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('399b8fa8-06f7-43dc-b929-5a76cf631d28', '40', 'pending', '2018-06-24T01:42:52.546');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('25f855d5-a19d-426b-9447-338fa8ea835d', '41', 'submitted', '2021-04-06T01:55:28.771');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('bc8f679c-1dca-4050-a823-f1e72269e5f6', '42', 'submitted', '2012-12-22T23:51:56.733');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('ea7d131a-7e70-46c4-9533-445ab76314be', '43', 'submitted', '2023-01-13T18:15:31.182');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('e8df3a6a-7afc-480c-86ac-05e7aa4b547d', '44', 'rejected', '2020-12-31T01:59:22.671');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('d7e8fc5d-fde5-414f-91bc-44501cc0052f', '45', 'approved', '1999-10-15T10:11:01.854');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('fe2ecad1-01af-47a5-a893-c4ba1f0a2b7c', '46', 'rejected', '1990-04-22T23:27:17.886');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('817d5a21-7057-45d7-bc19-e7dc3f2efc25', '47', 'rejected', '2022-10-17T04:59:15.452');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('200b2557-d215-42fd-a1a5-c59c10d59c23', '48', 'pending', '2009-07-10T23:43:36.481');
+INSERT INTO permits (permitID, rid, permitStatus, issueDate) VALUES ('b334e2ff-7402-4413-b770-ea2af6d484c6', '49', 'rejected', '2018-03-15T06:02:08.836');
 
 -- treeRequest test data
 INSERT INTO treeRequests (referenceNum, rid, streetAddress, zipCode, phone, amountOfPayment, relationshipToProperty, dateSubmitted, requestStatus, neighborhood) VALUES ('1fef06e1-a710-4e05-b921-b84e40c41ea2', '23', 'N Central Avenue', '83604', '(556)969-0541', '270.44', ' renting tenant', '1991-03-12T04:35:28.140', 'submitted', 'Oak Center');
@@ -426,6 +426,3 @@ VALUES
     (9, '2023-07-17', TRUE, 'Harley Circles', TRUE, 7, 'https://picsum.photos/seed/sv9/640/480', 'e75dc2b2-bcd9-443c-a59c-53a6dbcc44fd', 2),
 
     (10, '2022-10-03', FALSE, 'Post Road', FALSE, 5, 'https://picsum.photos/seed/sv10/640/480', '2e61bd4f-aed5-4981-9bb5-75a02de12d3e', 3);
-
-
-

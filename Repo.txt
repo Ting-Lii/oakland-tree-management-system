@@ -1,1 +1,22 @@
 https://github.com/oakhoury-2025spring/project-project-6
+
+[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/G-eAxnks)
+
+## Project Overview
+
+The project is designed to facilitate the organization and tracking of tree planting activities, including volunteer participation, permit statuses, and tree planting records.  It includes tables and operations for managing volunteers, permits, tree requests, tree plantings, and site visits. 
+
+- [Lucid chart UML link](https://lucid.app/lucidchart/f1f7215e-2354-460b-b016-aa8e63016f8f/edit?existing=1&docId=f1f7215e-2354-460b-b016-aa8e63016f8f&shared=true&invitationId=inv_cca6c043-c155-49d0-98e5-1d6aa21fdf81&page=dyL3MCm0_-v4#)
+- [Lucid chart RDB link](https://lucid.app/lucidchart/f1f7215e-2354-460b-b016-aa8e63016f8f/edit?existing=1&docId=f1f7215e-2354-460b-b016-aa8e63016f8f&shared=true&invitationId=inv_cca6c043-c155-49d0-98e5-1d6aa21fdf81&page=D843E6Pp5Jxo#)
+
+## Database Structure
+### The database consists of the following main tables:  
+- volunteers: Stores information about volunteers, including their ID, application status, and availability.
+- permits: Contains data about permits, including permit ID, related request ID, status, and issue date.
+- treeRequests: Manages tree planting requests with details such as reference number, address, payment amount, relationship to property, and request status.
+- treePlantings: Records information about tree planting events, including plant ID, request reference number, event name, plant date, and tree species.
+- volunteerPlants: Tracks volunteer participation in tree planting events, including work hours and feedback.
+- plantingZones: Defines different planting zones with various attributes.
+trees: Contains information about different tree species, including common and scientific names, height, width, and other characteristics.
+- siteVisits: Logs site visits for tree planting requests, including visit date, status, address, and related request reference number.
+- recommendedTrees: Stores recommended trees for specific site visits.

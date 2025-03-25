@@ -1,3 +1,5 @@
+-- modify the existing siteVisits table to update it with gathered information after a visit
+
 DELIMITER //
 CREATE PROCEDURE record_site_visit_info(
     IN p_site_visit_id INT,

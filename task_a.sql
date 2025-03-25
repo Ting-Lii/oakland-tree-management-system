@@ -2,7 +2,6 @@
 
 -- First create a stored procedure to handle user registration with validation
 DELIMITER //
-
 CREATE PROCEDURE register_user(
     IN p_firstName VARCHAR(40),
     IN p_lastName VARCHAR(40),
@@ -48,7 +47,6 @@ ELSE
 END IF;
 END IF;
 END //
-
 DELIMITER ;
 
 -- volunteer registration:

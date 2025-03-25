@@ -1,7 +1,8 @@
--- Creating a stored procedure to update planting records
--- Recording volunteer participation and feedback
+-- record tree planting completion
+-- Record volunteer participation and feedback, update availability to true
 -- Adding admin observations via photos
 
+-- use stored procedure to record completion of a tree planting event
 DELIMITER //
 CREATE PROCEDURE record_planting_completion(
     IN p_plant_id INT,
@@ -11,7 +12,7 @@ CREATE PROCEDURE record_planting_completion(
     IN p_feedback VARCHAR(20)
 )
 BEGIN
-    -- Validate planting exists
+    -- Validate tree planting exists
     IF NOT EXISTS
         (SELECT 1
          FROM treePlantings

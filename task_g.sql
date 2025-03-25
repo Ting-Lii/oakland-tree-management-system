@@ -2,9 +2,9 @@
 -- check valid removal of tree to prevent negative inventory
 -- update tree inventory
 -- Trigger to automatically reduce inventory when a tree is planted
--- add tree inventory by checking if tree species exists first, then update the number of inventory for existing species, or add new species
+-- addition in tree inventory by checking if tree species exists first, then update the number of inventory for existing species, or add new species
 
-
+-- use stored procedures to handle tree inventory management
 DELIMITER //
 CREATE PROCEDURE update_tree_inventory(
     IN p_tree_common_name VARCHAR(50),
@@ -68,7 +68,10 @@ CREATE PROCEDURE add_tree_inventory(
 )
 BEGIN
     -- Check if tree exists
-    IF EXISTS (SELECT 1 FROM trees WHERE commonName = p_common_name) THEN
+    IF EXISTS (
+        SELECT 1
+        FROM trees
+        WHERE commonName = p_common_name) THEN
         -- Update existing tree inventory
         UPDATE trees
         SET inventory = inventory + 1

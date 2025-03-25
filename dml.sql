@@ -426,3 +426,17 @@ VALUES
     (9, '2023-07-17', TRUE, 'Harley Circles', TRUE, 7, 'https://picsum.photos/seed/sv9/640/480', 'e75dc2b2-bcd9-443c-a59c-53a6dbcc44fd', 2),
 
     (10, '2022-10-03', FALSE, 'Post Road', FALSE, 5, 'https://picsum.photos/seed/sv10/640/480', '2e61bd4f-aed5-4981-9bb5-75a02de12d3e', 3);
+
+INSERT INTO oaktree.recommendedTrees (visitID, treeID) VALUES (1, 1);
+INSERT INTO oaktree.recommendedTrees (visitID, treeID) VALUES (2, 1);
+INSERT INTO oaktree.recommendedTrees (visitID, treeID) VALUES (3, 1);
+INSERT INTO oaktree.recommendedTrees (visitID, treeID) VALUES (4, 1);
+INSERT INTO oaktree.recommendedTrees (visitID, treeID) VALUES (5, 1);
+INSERT INTO oaktree.recommendedTrees (visitID, treeID) VALUES (6, 1);
+INSERT INTO oaktree.recommendedTrees (visitID, treeID) VALUES (7, 1);
+INSERT INTO oaktree.recommendedTrees (visitID, treeID) VALUES (8, 1);
+INSERT INTO oaktree.recommendedTrees (visitID, treeID) VALUES (9, 1);
+INSERT INTO oaktree.recommendedTrees (visitID, treeID) VALUES (10, 1);
+INSERT INTO oaktree.recommendedTrees (visitID, treeID) VALUES (1, 2);
+INSERT INTO oaktree.recommendedTrees (visitID, treeID) VALUES (2, 2);
+INSERT INTO oaktree.recommendedTrees (visitID, treeID) VALUES (1, 3);

@@ -173,9 +173,11 @@ CREATE TABLE trees(
 
 -- recommendedTrees table
 CREATE TABLE recommendedTrees(
-    visitID INT PRIMARY KEY,
+    visitID INT,
     treeID INT,
 
+    CONSTRAINT PK_recommended_trees PRIMARY KEY (visitID, treeID),
+    
     FOREIGN KEY (visitID) REFERENCES siteVisits(siteVisitID)
       ON DELETE CASCADE -- if a siteVisit is deleted, delete recommendedTrees rows
       ON UPDATE CASCADE, -- if siteVisitID is updated, update it automatically

@@ -23,7 +23,7 @@ FROM neighborhoods
 WHERE name = p_neighborhood;
 
 -- Check if email is valid (contains @ and at least one . after @)
-SET email_valid = p_email REGEXP '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$';
+SET email_valid = p_email LIKE '%@%._%';
 
     -- Validate inputs
     IF neighborhood_exists = 0 THEN

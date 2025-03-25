@@ -91,7 +91,7 @@ CALL add_tree_inventory('African fern pine', 'Afrocarpus gracilior', 1);
 -- This will automatically reduce the inventory by 1.
 INSERT INTO treePlantings (requestRefNum, eventName, plantDate, streetAddress, zipCode, photoAfter, treePlanted, aid)
 VALUES (
-           'a6fd6eca-9e70-4fa8-ae8c-374032c6dd78',
+           'eddfae71-0431-4621-be29-a198b500211b',
            'Spring Planting Event 2024',
            '2024-03-20',
            '222 Oak Street',

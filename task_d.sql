@@ -1,5 +1,6 @@
--- modify the existing siteVisits table to update it with gathered information after a visit
+-- update the existing siteVisits table with recommended tree and photo before planting information
 
+-- use stored procedure to update the siteVisits table
 DELIMITER //
 CREATE PROCEDURE record_site_visit_info(
     IN p_site_visit_id INT,

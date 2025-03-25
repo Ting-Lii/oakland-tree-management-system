@@ -2,6 +2,8 @@
 -- check valid removal of tree to prevent negative inventory
 -- update tree inventory
 -- Trigger to automatically reduce inventory when a tree is planted
+-- add tree inventory by checking if tree species exists first, then update the number of inventory for existing species, or add new species
+
 
 DELIMITER //
 CREATE PROCEDURE update_tree_inventory(
@@ -58,30 +60,44 @@ BEGIN
     END IF;
 END //
 
-
--- trigger to handle tree planting deletion
-CREATE TRIGGER after_tree_planting_delete
-    AFTER DELETE ON treePlantings
-    FOR EACH ROW
+-- Add tree inventory or insert new tree species
+CREATE PROCEDURE add_tree_inventory(
+    IN p_common_name VARCHAR(50),
+    IN p_scientific_name VARCHAR(100),
+    IN p_quantity INT
+)
 BEGIN
-    -- Increase inventory by 1 when a tree planting record is deleted
-    UPDATE trees
-    SET inventory = inventory + 1
-    WHERE commonName = OLD.treePlanted;
+    -- Check if tree exists
+    IF EXISTS (SELECT 1 FROM trees WHERE commonName = p_common_name) THEN
+        -- Update existing tree inventory
+        UPDATE trees
+        SET inventory = inventory + 1
+        WHERE commonName = p_common_name;
+    ELSEIF p_quantity < 0 THEN
+        SIGNAL SQLSTATE '45000'
+            SET MESSAGE_TEXT = 'Initial inventory cannot be negative';
+    ELSE
+        -- Insert new tree species: only insert required default values
+        INSERT INTO trees (commonName, scientificName, inventory)
+        VALUES (p_common_name, p_scientific_name, p_quantity);
+    END IF;
 END //
-
 DELIMITER ;
 
--- Example usage:
--- Add 5 trees to inventory of a specific species
-CALL update_tree_inventory('African fern pine', 5, @new_quantity);
-SELECT @new_quantity as 'New Inventory Level';
+-- add an existing tree species to inventory
+CALL add_tree_inventory('African fern pine', 'Afrocarpus gracilior', 1);
 
--- Remove 2 trees from inventory of a specific species
-CALL update_tree_inventory('African fern pine', -2, @new_quantity);
-SELECT @new_quantity as 'New Inventory Level';
+-- Remove a tree from inventory using after_tree_planting trigger
+-- This will automatically reduce the inventory by 1.
+INSERT INTO treePlantings (requestRefNum, eventName, plantDate, streetAddress, zipCode, photoAfter, treePlanted, aid)
+VALUES (
+           'a6fd6eca-9e70-4fa8-ae8c-374032c6dd78',
+           'Spring Planting Event 2024',
+           '2024-03-20',
+           '222 Oak Street',
+           '94611',
+           NULL,
+           'African fern pine',
+           1);
 
--- Query to view current inventory levels
-SELECT commonName, inventory
-FROM trees
-ORDER BY commonName;
+

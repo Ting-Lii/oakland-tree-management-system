@@ -22,13 +22,17 @@ BEGIN
     DECLARE new_planting_id INT;
 
     -- Check if tree request exists and get its details
-    SELECT COUNT(*) as request_count,
-           MAX(requestStatus) as request_status, -- Since filtering by a unique reference number, using MAX won't affect the actual values
-           MAX(streetAddress) as street_address,
-           MAX(zipCode) as zip_code
+    SELECT COUNT(*)
     INTO request_exists, request_status, request_address, request_zip
     FROM treeRequests
     WHERE referenceNum = p_request_ref_num;
+
+    -- Retrieve tree request details
+    SELECT requestStatus, streetAddress, zipCode
+    INTO request_status, request_address, request_zip
+    FROM treeRequests
+    WHERE referenceNum = p_request_ref_num
+    LIMIT 1; -- using LIMIT 1 to ensure only one row is returned
 
     -- Count number of volunteers provided
     SET volunteer_count = (LENGTH(p_volunteer_ids) - LENGTH(REPLACE(p_volunteer_ids, ',', '')) + 1); -- Count commas + 1

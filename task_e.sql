@@ -1,7 +1,8 @@
 -- 1. Validate the tree request exists and is approved
 -- 2. Create a tree planting record
--- 3. Assign available volunteers to the planting based on their availabilities
+-- 3. Assign available volunteers to the planting based on their availabilities and set to false after scheduling
 
+-- use stored procedure to schedule a tree planting event
 DELIMITER //
 CREATE PROCEDURE schedule_tree_planting(
     IN p_request_ref_num VARCHAR(40),
@@ -20,7 +21,7 @@ BEGIN
     DECLARE volunteer_count INT;
     DECLARE new_planting_id INT;
 
-    -- Check if request exists and get its details
+    -- Check if tree request exists and get its details
     SELECT COUNT(*) as request_count,
            MAX(requestStatus) as request_status, -- Since filtering by a unique reference number, using MAX won't affect the actual values
            MAX(streetAddress) as street_address,
@@ -32,7 +33,7 @@ BEGIN
     -- Count number of volunteers provided
     SET volunteer_count = (LENGTH(p_volunteer_ids) - LENGTH(REPLACE(p_volunteer_ids, ',', '')) + 1); -- Count commas + 1
 
-    -- Validate request and volunteers
+    -- Validate tree request and volunteers
     IF request_exists = 0 THEN
         SIGNAL SQLSTATE '45000'
             SET MESSAGE_TEXT = 'Tree request not found';

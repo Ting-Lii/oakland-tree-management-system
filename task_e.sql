@@ -66,12 +66,9 @@ BEGIN
         SET new_planting_id = LAST_INSERT_ID();
 
         -- Assign available volunteers (minimum 3)
+        -- initial workHour = 0, feedback = NULL by default
         INSERT INTO volunteerPlants (plantID, vid, workHour, feedback)
-        SELECT
-            new_planting_id,
-            v.vid,
-            0.0, -- Initial work hours
-            NULL -- Initial feedback
+        SELECT new_planting_id, v.vid,0.0, NULL
         FROM volunteers v
         WHERE v.availability = TRUE
         LIMIT 3; -- Minimum required volunteers

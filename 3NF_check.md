@@ -1,0 +1,81 @@
+# 3NF check
+## This markdown is used to check whether all the tables are 3NF
+## Schemes
+- users 
+  - 1NF: No composite attribute, all the value of any attribute in a tuple is a single values from the domain of the attribute
+  - 2NF: Every non-prime attribute is fully dependent on the PK
+    - FD in this scheme:
+    - {uid} -> {firstName, lastName, password, zipCode, role} 
+  - 3NF: Every non-prime attribute is non-transitively dependent on every key(no transitive dependencies)
+    - There's no transitive dependencies here
+-  volunteers:
+   - 1NF: No composite attribute, all the value of any attribute in a tuple is a single values from the domain of the attribute
+   - 2NF: Every non-prime attribute is fully dependent on the PK
+     - FD in this scheme:
+     - {vid} -> {applicationstatus, availability}
+   - 3NF: Every non-prime attribute is non-transitively dependent on every key(no transitive dependencies)
+     - There's no transitive dependencies here
+- permits:   
+   - 1NF: No composite attribute, all the value of any attribute in a tuple is a single values from the domain of the attribute
+   - 2NF: Every non-prime attribute is fully dependent on the PK
+     - FD in this scheme:
+     - {permitID} -> {permitStatus, issueDate}
+   - 3NF: Every non-prime attribute is non-transitively dependent on every key(no transitive dependencies)
+     - There's no transitive dependencies here
+- neighborhoods:   
+   - 1NF: No composite attribute, all the value of any attribute in a tuple is a single values from the domain of the attribute
+   - 2NF: Every non-prime attribute is fully dependent on the PK
+     - FD in this scheme:
+     - {name} -> {district, description}
+   - 3NF: Every non-prime attribute is non-transitively dependent on every key(no transitive dependencies)
+     - There's no transitive dependencies here
+- treeRequests:   
+   - 1NF: No composite attribute, all the value of any attribute in a tuple is a single values from the domain of the attribute
+   - 2NF: Every non-prime attribute is fully dependent on the PK
+     - FD in this scheme:
+     - {referenceNum} -> {streetAddress, zipCode, phone, amountOfPayment, relationshipToProperty, dateSubmitted, requestStatus}
+   - 3NF: Every non-prime attribute is non-transitively dependent on every key(no transitive dependencies)
+     - There's no transitive dependencies here
+     - Although it might seems that one street address will determine one zipCode...there's an exception. Places like campus or airport can have multiple zipCode while they have the same street address. So that's not an transitive dependency.
+- treePlantings:   
+   - 1NF: No composite attribute, all the value of any attribute in a tuple is a single values from the domain of the attribute
+   - 2NF: Every non-prime attribute is fully dependent on the PK
+     - FD in this scheme:
+     - {plantID} -> {eventName, plantDate, streetAddress, zipCode, photoAfter, treePlanted}
+   - 3NF: Every non-prime attribute is non-transitively dependent on every key(no transitive dependencies)
+     - There's no transitive dependencies here
+- volunteerPlants:   
+   - 1NF: No composite attribute, all the value of any attribute in a tuple is a single values from the domain of the attribute
+   - 2NF: Every non-prime attribute is fully dependent on the PK
+     - FD in this scheme:
+     - {plantID, vid} -> {workHour, feedback}
+   - 3NF: Every non-prime attribute is non-transitively dependent on every key(no transitive dependencies)
+     - There's no transitive dependencies here
+- siteVisits:   
+   - 1NF: No composite attribute, all the value of any attribute in a tuple is a single values from the domain of the attribute
+   - 2NF: Every non-prime attribute is fully dependent on the PK
+     - FD in this scheme:
+     - {siteVisitID} -> {visitDate, visitStatus, streetAddress, powerLine, minBedWidth, photoBefore}
+   - 3NF: Every non-prime attribute is non-transitively dependent on every key(no transitive dependencies)
+     - There's no transitive dependencies here
+- recommendedTrees:   
+   - 1NF: No composite attribute, all the value of any attribute in a tuple is a single values from the domain of the attribute
+   - 2NF: Every non-prime attribute is fully dependent on the PK
+     - FD in this scheme:
+     - All the attribute in this table is part of the PK, so there's no non-prime attribute
+   - 3NF: Every non-prime attribute is non-transitively dependent on every key(no transitive dependencies)
+     - There's no transitive dependencies here
+- trees:   
+   - 1NF: No composite attribute, all the value of any attribute in a tuple is a single values from the domain of the attribute
+   - 2NF: Every non-prime attribute is fully dependent on the PK
+     - FD in this scheme:
+     - {treeID} -> {scientificName, height, width, minPlantingBedWidth, plantableUnderPowerLines, caNative, droughtTolerance, growthRate, foliageType, debris, rootDamagePotential, nurseryAvailability, visualAttraction, inventory}
+   - 3NF: Every non-prime attribute is non-transitively dependent on every key(no transitive dependencies)
+     - There's no transitive dependencies here
+- plantingZones:   
+   - 1NF: No composite attribute, all the value of any attribute in a tuple is a single values from the domain of the attribute
+   - 2NF: Every non-prime attribute is fully dependent on the PK
+     - FD in this scheme:
+     - All the attribute in this table is part of the PK or CK, so there's no non-prime attribute
+   - 3NF: Every non-prime attribute is non-transitively dependent on every key(no transitive dependencies)
+     - There's no transitive dependencies here

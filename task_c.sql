@@ -40,8 +40,7 @@ BEGIN
         IF visit_exists > 0 THEN
             -- Update existing site visit
             UPDATE siteVisits
-            SET siteVisitDate = p_visit_date,
-                aid = p_admin_id
+            SET siteVisitDate = p_visit_date, aid = p_admin_id
             WHERE requestRefNum = p_request_ref_num;
         ELSE
             -- Create new site visit record

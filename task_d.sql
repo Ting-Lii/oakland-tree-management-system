@@ -29,12 +29,11 @@ BEGIN
 
         IF p_visit_status = TRUE THEN
             REPLACE INTO recommendedTrees (visitID, treeID) -- replace into: if the record exists, it will be replaced
-            SELECT
-                p_site_visit_id, t.treeID
+            SELECT p_site_visit_id, t.treeID
             FROM trees t
             WHERE (p_power_line = TRUE AND t.plantableUnderPowerLines = TRUE)
-               OR (p_power_line = FALSE)
-                AND t.minPlantingBedWidth <= p_bed_width;
+            OR (p_power_line = FALSE)
+            AND t.minPlantingBedWidth <= p_bed_width;
         END IF;
 
         SELECT 'Site visit information recorded successfully' AS Result;

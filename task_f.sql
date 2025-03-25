@@ -12,7 +12,10 @@ CREATE PROCEDURE record_planting_completion(
 )
 BEGIN
     -- Validate planting exists
-    IF NOT EXISTS (SELECT 1 FROM treePlantings WHERE plantID = p_plant_id) THEN
+    IF NOT EXISTS
+        (SELECT 1
+         FROM treePlantings
+         WHERE plantID = p_plant_id) THEN
         SIGNAL SQLSTATE '45000'
             SET MESSAGE_TEXT = 'Planting ID does not exist';
     END IF;
@@ -24,8 +27,7 @@ BEGIN
 
     -- Update volunteer's work hours and feedback
     UPDATE volunteerPlants
-    SET workHour = p_work_hour,
-        feedback = p_feedback
+    SET workHour = p_work_hour, feedback = p_feedback
     WHERE plantID = p_plant_id AND vid = p_vid;
 
     -- Reset volunteer's availability
@@ -36,7 +38,7 @@ BEGIN
     -- Return updated record
     SELECT tp.*, vp.vid, vp.workHour, vp.feedback
     FROM treePlantings tp
-             JOIN volunteerPlants vp ON tp.plantID = vp.plantID
+    JOIN volunteerPlants vp ON tp.plantID = vp.plantID
     WHERE tp.plantID = p_plant_id AND vp.vid = p_vid;
 END //
 DELIMITER ;
@@ -74,5 +76,5 @@ SELECT
     vp.workHour,
     vp.feedback
 FROM treePlantings tp
-         JOIN volunteerPlants vp ON tp.plantID = vp.plantID
+JOIN volunteerPlants vp ON tp.plantID = vp.plantID
 ORDER BY tp.plantID, vp.vid;

@@ -1,8 +1,9 @@
-// ting li, April 4, 2025
+// ting li, April 4, 2025, ask if required.
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 // for standard and safety, we should use DAO here for database operations.
+// we create CURD operations here.
 public class UserDAO {
     public boolean registerUser(User user) {
         String sql = "INSERT INTO users (firstName, lastName, email, password, zipCode, role, neighborhood) VALUES (?, ?, ?, ?, ?, ?, ?)";
@@ -27,4 +28,5 @@ public class UserDAO {
             return false;
         }
     }
+
 }

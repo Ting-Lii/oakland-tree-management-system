@@ -183,10 +183,15 @@ CREATE TABLE plantingZoneFactors(
    CONSTRAINT PK_planting_zone_factor PRIMARY KEY (factor)
 );
 
+-- visitStatus lookup table
+CREATE TABLE visitStatuses(
+    visitStatus VARCHAR(20) NOT NULL PRIMARY KEY
+);
+
 -- siteVisits table
 CREATE TABLE siteVisits(
     requestID INT NOT NULL,
-    aid INT NOT NULL,  
+    aid INT NOT NULL,
     siteVisitDate DATE NOT NULL,
     visitStatus VARCHAR(20) NOT NULL,
     isUnderPowerLine BOOLEAN,
@@ -198,7 +203,7 @@ CREATE TABLE siteVisits(
     CONSTRAINT FK_site_visti_aid FOREIGN KEY (aid)
         REFERENCES users(uid) ON DELETE NO ACTION ON UPDATE CASCADE,
     CONSTRAINT FK_site_visit_status FOREIGN KEY (visitStatus)
-        REFERENCES requestStatuses(requestStatus) ON DELETE NO ACTION ON UPDATE CASCADE
+        REFERENCES visitStatuses(visitStatus) ON DELETE NO ACTION ON UPDATE CASCADE
 );
 
 -- tree and its corresponding planting zone factors

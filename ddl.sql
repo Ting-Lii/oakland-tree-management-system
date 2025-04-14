@@ -39,7 +39,7 @@ CREATE TABLE requestStatuses(
 CREATE TABLE volunteers(
     vid INT NOT NULL,
     applicationStatus VARCHAR(20),
-    availability BOOLEAN,
+    isAvailable BOOLEAN,
     CONSTRAINT PK_vid PRIMARY KEY (vid),
     CONSTRAINT FK_volunteer_uid FOREIGN KEY (vid)
         REFERENCES users(uid) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -118,8 +118,8 @@ CREATE TABLE treeSpecies(
    minWidth INT NOT NULL,
    maxWidth INT NOT NULL,
    minPlantingBedWidth INT,
-   plantableUnderPowerLines BOOLEAN,
-   caNative BOOLEAN,
+   isPlantableUnderPowerLines BOOLEAN,
+   isCaNative BOOLEAN,
    droughtTolerance VARCHAR(40),
    growthRate VARCHAR(40),
    foliageType VARCHAR(40),
@@ -201,7 +201,7 @@ CREATE TABLE siteVisits(
         REFERENCES requestStatuses(requestStatus) ON DELETE NO ACTION ON UPDATE CASCADE
 );
 
--- tree and its correspoding planting zone factors
+-- tree and its corresponding planting zone factors
 CREATE TABLE treeToPlantingZones(
     plantingZoneFactor VARCHAR(60) NOT NULL,
     treeID INT NOT NULL,

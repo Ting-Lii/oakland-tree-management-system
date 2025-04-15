@@ -1,4 +1,4 @@
-// ting li, April 4, 2025, ask if required.
+// ting li
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -14,7 +14,7 @@ public class UserDAO {
             stmt.setString(1, user.getFirstName());
             stmt.setString(2, user.getLastName());
             stmt.setString(3, user.getEmail());
-            stmt.setString(4, user.getPassword());// should we encrypt?
+            stmt.setString(4, user.getPassword());
             stmt.setString(5, user.getZipCode());
             stmt.setString(6, user.getRole());
             stmt.setString(7, user.getNeighborhood());
@@ -28,5 +28,21 @@ public class UserDAO {
             return false;
         }
     }
+
+    public int getUserIdByEmail(String email) {
+        String sql = "SELECT uid FROM users WHERE email = ?";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+                stmt.setString(1, email); // plug in email (first place holder)
+                var resRow = stmt.executeQuery();
+                if (resRow.next()) {
+                    return resRow.getInt("uid");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return -1;
+    }
+
 
 }

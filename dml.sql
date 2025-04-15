@@ -161,66 +161,173 @@ INSERT INTO treeRequests VALUES
     (12,7, '1527 34th St, Oakland', '2024-05-17', '510-555-7777', 0.00, 'tenant', '94608', 'approved', 'Clawson'),
     (13,8, '1800 Wood St, Oakland', '2024-05-18', '510-555-8888', 80.00, 'owner', '94607', 'pending', 'Prescott'),
     (14,9, '890 Brockhurst St rm 18, Oakland', '2024-05-19', '510-555-9999', 0.00, 'tenant', '94608', 'submitted', 'Hoover-Foster'),
-    (15,10, '2311A Magnolia St, Oakland', '2024-05-20', '510-555-0000', 65.00, NULL, '94607', 'approved', 'McClymonds');
-
-
--- yet to be completed, do not use these data for now
+    (15,10, '2311A Magnolia St, Oakland', '2024-05-20', '510-555-0000', 65.00, NULL, '94607', 'approved', 'McClymonds'),
+    (16,11, '5849 San Pablo Ave, Oakland', '2024-05-12', '510-555-1111', 75.00, 'tenant', '94608', 'approved', 'Golden Gate'),
+    (17,6,'1221 3rd St, Oakland','2025-01-20','510-555-1403',0.00,'tenant','94607','approved','Acorn Industrial'),
+    (18,7,'1221 3rd St, Oakland','2025-02-22','510-555-1443',0.00,'tenant','94607','approved','Acorn Industrial'),
+    (19,6, '890 Brockhurst St rm 18, Oakland', '2024-12-15', '510-555-1111', 50.0, 'Owner', '94608', 'approved', 'Hoover-Foster'),
+    (20,7, '2311A Magnolia St, Oakland', '2024-12-20', '510-555-2222', 65.0, 'Tenant', '94607', 'approved', 'McClymonds'),
+    (21,8, '1911 Union St, Oakland', '2025-01-03', '510-555-3333', 40.0, 'Owner', '94607', 'approved', 'Ralph Bunche'),
+    (22,9, '1625 Filbert St, Oakland', '2025-01-10', '510-555-4444', 75.0, 'Property Manager', '94607', 'approved', 'Oak Center'),
+    (23,10, '923 Adeline St, Oakland', '2025-02-01', '510-555-5555', 60.0, 'Tenant', '94607', 'approved', 'Acorn'),
+    (24,11, '1221 3rd St, Oakland', '2025-02-14', '510-555-6666', 55.0, 'Owner', '94607', 'approved', 'Acorn Industrial'),
+    (25,6,'560 59th St, Oakland','2024-09-09','510-132-4140',0.00,'owner','94609','approved','Bushrod'),
+    (26,7,'5095 Telegraph Ave, Oakland','2024-10-19','510-132-5140',0.00,'owner','94610','approved','Temescal'),
+    (27,15,'1074 63rd St, Oakland','2023-12-05','510-132-4040',0.00,'concerned neighbor','94608','approved','Paradise Park'),
+    (28,15,'1074 63rd St, Oakland','2022-10-21','510-132-4040',0.00,'concerned neighbor','94608','approved','Paradise Park'),
+    (29,15,'1074 63rd St, Oakland','2021-02-09','510-132-4040',0.00,'concerned neighbor','94608','approved','Paradise Park'),
+    (30,13,'1800 Wood St, Oakland','2024-09-09','510-891-1240',0.00,'tenant','94607','approved','Prescott'),
+    (31,13,'560 59th St, Oakland','2024-12-12','510-891-1240',0.00,'concerned neighbor','94609','approved','Bushrod'),
+    (32,14,'560 59th St, Oakland','2025-01-09','510-555-4444',0.00,'concerned neighbor','94609','approved','Bushrod'),
+    (33,14,'560 59th St, Oakland','2021-04-09','510-555-4444',0.00,'concerned neighbor','94609','approved','Bushrod'),
+    (34,6,'560 59th St, Oakland','2024-05-09','510-132-4140',0.00,'concerned neighbor','94609','approved','Bushrod');
 
 
 -- site visit test data
 INSERT INTO siteVisits VALUES
     (3, 1, '2025-01-02', 'completed',FALSE,15, 'https://picsum.photos/seed/tree1/600/400'),
-    (5,1),
-    (9,2),
-    (12,3),
-    (15,5);
+    (5,1, '2025-04-20', 'scheduled',FALSE,20,'https://picsum.photos/seed/oaklandstreet/600/400'),
+    (9,2, '2024-01-20','completed',TRUE,20,'https://picsum.photos/seed/oaklandstreet/600/400'),
+    (12,3,'2024-07-09','completed',FALSE,30,'https://picsum.photos/seed/oaklandstreet/600/400'),
+    (15, 5, '2024-02-25', 'scheduled', FALSE, 10, 'https://picsum.photos/seed/visit15/600/400'),
+    (16, 4, '2024-03-10', 'completed', TRUE, 25, 'https://picsum.photos/seed/visit16/600/400'),
+    (17, 4, '2024-03-15', 'scheduled', FALSE, 18, 'https://picsum.photos/seed/visit17/600/400'),
+    (18, 1, '2025-03-22', 'completed', FALSE, 22, 'https://picsum.photos/seed/visit18/600/400'),
+    (19, 2, '2025-03-28', 'completed', TRUE, 28, 'https://picsum.photos/seed/visit19/600/400'),
+    (20, 1, '2025-04-01', 'scheduled', FALSE, 30, 'https://picsum.photos/seed/visit20/600/400'),
+    (21, 1, '2025-04-05', 'scheduled', FALSE, 35, 'https://picsum.photos/seed/visit21/600/400'),
+    (22, 2, '2025-04-07', 'completed', TRUE, 40, 'https://picsum.photos/seed/visit22/600/400'),
+    (23, 4, '2024-04-10', 'completed', FALSE, 18, 'https://picsum.photos/seed/visit23/600/400'),
+    (24, 2, '2024-04-12', 'scheduled', FALSE, 20, 'https://picsum.photos/seed/visit24/600/400'),
+    (25, 2, '2025-03-10', 'completed', TRUE, 24, 'https://picsum.photos/seed/visit25/600/400'),
+    (26, 5, '2025-03-15', 'completed', FALSE, 18, 'https://picsum.photos/seed/visit26/600/400'),
+    (27, 5, '2025-03-20', 'completed', TRUE, 30, 'https://picsum.photos/seed/visit27/600/400'),
+    (28, 3, '2025-03-25', 'completed', FALSE, 16, 'https://picsum.photos/seed/visit28/600/400'),
+    (29, 5, '2025-03-30', 'completed', TRUE, 22, 'https://picsum.photos/seed/visit29/600/400'),
+    (30, 1, '2025-04-02', 'completed', FALSE, 20, 'https://picsum.photos/seed/visit30/600/400'),
+    (31, 2, '2025-04-05', 'completed', TRUE, 25, 'https://picsum.photos/seed/visit31/600/400'),
+    (32, 3, '2025-04-08', 'completed', FALSE, 19, 'https://picsum.photos/seed/visit32/600/400'),
+    (33, 3, '2025-04-10', 'completed', TRUE, 21, 'https://picsum.photos/seed/visit33/600/400'),
+    (34, 3, '2025-04-12', 'completed', FALSE, 23, 'https://picsum.photos/seed/visit34/600/400');;
+
+-- insertion for trees
+INSERT INTO treeSpecies VALUES
+    (1,'African fern pine', 'Afrocarpus gracilior', 40,60,25,35, 5,FALSE, FALSE, 'High', 'Moderate', 'Evergreen', 'Low', 'Moderate', 'High', 'Greenscreen', 10),
+    (2,'Aleppo oak', 'Quercus boissieri', 30,40,30,50,5, FALSE, FALSE, 'High', 'Moderate', 'Deciduous', 'Low acorn potential', 'Moderate', 'Low', 'Fall color', 11),
+    (3,'Atlas cedar', 'Cedrus atlantica', 60,100,30,45, 6, FALSE, FALSE, 'Very high', 'Fast', 'Evergreen', 'Low', 'High', 'Low', 'Structure', 12),
+    (4,'Brisbane box', 'Lophostemon confertus', 40,60,25,40, 5, FALSE, FALSE, 'Moderate', 'Moderate', 'Evergreen', 'Low', 'Moderate', 'High', 'Bark', 13),
+    (5,'Bronze loquat', 'Eriobotrya deflexa', 15,25,20,30, 3, TRUE, FALSE, 'Moderate', 'Moderate', 'Evergreen', 'Moderate', 'Low', 'Moderate', 'Foliage, flowers', 14),
+    (6,'Cajeput tree', 'Melaleuca quinquenervia', 20,35,15,35, 4, FALSE, FALSE, 'Very high', 'Moderate', 'Evergreen', 'Low', 'Moderate', 'High', 'Bark, flower', 15),
+    (7,'California buckeye', 'Aesculus californica', 20,30,20,50, 8, TRUE, TRUE, 'High', 'Slow', 'Drought deciduous', 'Large seeds', 'Moderate', 'Moderate', 'Structure, fruit', 16),
+    (8,'Canary Island pine', 'Pinus canariensis', 60,100,20,40, 8, FALSE, FALSE, 'Very high', 'Fast', 'Evergreen', 'Large cones, limb failure', 'High', 'High', 'Foliage, bark', 17),
+    (9,'Catalina cherry', 'Prunus lyonii', 15,30,10,30,8, TRUE, TRUE, 'High', 'Moderate', 'Evergreen', 'High fruit potential', 'Low', 'Moderate', 'Flower, foliage', 18),
+    (10,'Chestnut leaf oak', 'Quercus castaneifolia', 50,100,30,60, 6, FALSE, FALSE, 'High', 'Very fast', 'Deciduous', 'High acorn potential', 'High', 'Low', 'Size, structure', 19);
+
+INSERT INTO treeToPlantingZones VALUES
+    ('Highly urbanized zones', 1),
+    ('Residential adjacent to natural areas',1),
+    ('Highly urbanized zones', 2),
+    ('Residential adjacent to natural areas',2),
+    ('Highly urbanized zones', 3),
+    ('Residential adjacent to natural areas',3),
+    ('Near bay locations',4),
+    ('Highly urbanized zones', 4),
+    ('Highly urbanized zones', 5),
+    ('Under harsh sites: windy, dry or salty',6),
+    ('Near bay locations',6),
+    ('Highly urbanized zones',6),
+    ('Residential adjacent to natural areas',7),
+    ('Near bay locations',8),
+    ('Highly urbanized zones',8),
+    ('Residential adjacent to natural areas',8),
+    ('Highly urbanized zones',9),
+    ('Residential adjacent to natural areas',9),
+    ('Highly urbanized zones',10),
+    ('Residential adjacent to natural areas',10);
+
+-- recommended trees
+INSERT INTO recommendedTrees VALUES
+    (3, 4),
+    (3, 7),
+    (9, 1),
+    (9, 5),
+    (12, 2),
+    (12, 6),
+    (25, 3),
+    (25, 9),
+    (26, 8),
+    (26, 10),
+    (27, 2),
+    (27, 7),
+    (28, 5),
+    (28, 10),
+    (29, 1),
+    (29, 6),
+    (30, 4),
+    (30, 9),
+    (31, 2),
+    (31, 8),
+    (32, 3),
+    (32, 5),
+    (33, 7),
+    (33, 10),
+    (34, 6),
+    (34, 8);
+
 
 -- treePlanting test data
 INSERT INTO treePlantings VALUES
-    (3),
-    (5),
-    (9),
-    (12)
+    (3,  '2025-01-12', 'https://picsum.photos/seed/plant3/600/400', 1, 1),
+    (9,  '2025-02-08', 'https://picsum.photos/seed/plant9/600/400', 2, 2),
+    (12, '2025-02-14', 'https://picsum.photos/seed/plant12/600/400', 3, 3),
+    (25, '2025-03-01', 'https://picsum.photos/seed/plant25/600/400', 4, 4),
+    (26, '2025-03-03', 'https://picsum.photos/seed/plant26/600/400', 5, 5),
+    (27, '2025-03-05', 'https://picsum.photos/seed/plant27/600/400', 1, 6),
+    (28, '2025-03-07', 'https://picsum.photos/seed/plant28/600/400', 1, 5),
+    (29, '2025-03-09', 'https://picsum.photos/seed/plant29/600/400', 3, 1),
+    (30, '2025-03-11', 'https://picsum.photos/seed/plant30/600/400', 2, 4),
+    (31, '2025-03-13', 'https://picsum.photos/seed/plant31/600/400', 5, 2),
+    (32, '2025-03-15', 'https://picsum.photos/seed/plant32/600/400', 5, 3),
+    (33, '2025-03-17', 'https://picsum.photos/seed/plant33/600/400', 4, 7);
 
 -- volunteerPlants test data
 INSERT INTO volunteerPlants VALUES
-    (3),
-    (3),
-    (5,)
-    (9),
-    (12),
+    (3, 16, 3.0, 'moderate'),
+    (3, 17, 4.0, 'moderate'),
+    (3, 18, 2.5, 'light'),
 
--- insertion for trees (incomplete, ONGOING).
-INSERT INTO trees (
-    commonName, scientificName, height, width, minPlantingBedWidth,
-    plantableUnderPowerLines, caNative, droughtTolerance, growthRate,
-    foliageType, debris, rootDamagePotential, nurseryAvailability,
-    visualAttraction, inventory, zoneID
-)
-VALUES
-    ('African fern pine', 'Afrocarpus gracilior', '40-60\'', '25-35\'', 5, FALSE, FALSE, 'High', 'Moderate', 'Evergreen', 'Low', 'Moderate', 'High', 'Greenscreen', 10, 1),
+    (9, 19, 5.0, 'overload'),
+    (9, 20, 3.5, 'moderate'),
+    (9, 21, 2.0, 'light'),
 
-    ('Aleppo oak', 'Quercus boissieri', '30-40\'', '30-50\'', 5, FALSE, FALSE, 'High', 'Moderate', 'Deciduous', 'Low acorn potential', 'Moderate', 'Low', 'Fall color', 11, 1),
+    (12, 22, 4.5, 'heavy'),
+    (12, 23, 3.0, 'moderate'),
+    (12, 24, 2.5, 'light'),
 
-    ('Atlas cedar', 'Cedrus atlantica', '60-100\'', '30-45\'', 6, FALSE, FALSE, 'Very high', 'Fast', 'Evergreen', 'Low', 'High', 'Low', 'Structure', 12, 1),
+    (25, 25, 4.0, 'moderate'),
+    (25, 16, 5.5, 'overload'),
+    (25, 17, 3.0, 'heavy'),
 
-    ('Brisbane box', 'Lophostemon confertus', '40-60\'', '25-40\'', 5, FALSE, FALSE, 'Moderate', 'Moderate', 'Evergreen', 'Low', 'Moderate', 'High', 'Bark', 13, 2),
+    (26, 18, 3.0, 'moderate'),
+    (26, 19, 4.0, 'heavy'),
+    (26, 20, 3.5, 'light'),
 
-    ('Bronze loquat', 'Eriobotrya deflexa', '15-25\'', '20-30\'', 3, TRUE, FALSE, 'Moderate', 'Moderate', 'Evergreen', 'Moderate', 'Low', 'Moderate', 'Foliage, flowers', 14, 3),
+    (27, 21, 4.5, 'heavy'),
+    (27, 22, 2.5, 'moderate'),
+    (27, 23, 5.0, 'overload'),
 
-    ('Cajeput tree', 'Melaleuca quinquenervia', '20-35\'', '15-35\'', 4, FALSE, FALSE, 'Very high', 'Moderate', 'Evergreen', 'Low', 'Moderate', 'High', 'Bark, flower', 15, 4),
+    (28, 24, 2.5, 'light'),
+    (28, 25, 3.0, 'moderate'),
+    (28, 16, 4.0, 'heavy'),
 
-    ('California buckeye', 'Aesculus californica', '20-30\'', '20-50\'', 8, TRUE, TRUE, 'High', 'Slow', 'Drought deciduous', 'Large seeds', 'Moderate', 'Moderate', 'Structure, fruit', 16, 5),
+    (29, 16, 4.0, 'heavy'),
 
-    ('Canary Island pine', 'Pinus canariensis', '60-100\'', '20-40\'', 8, FALSE, FALSE, 'Very high', 'Fast', 'Evergreen', 'Large cones, limb failure', 'High', 'High', 'Foliage, bark', 17, 6),
+    (30, 17, 3.5, 'moderate'),
 
-    ('Catalina cherry', 'Prunus lyonii', '15-30\'', '10-30\'', 8, TRUE, TRUE, 'High', 'Moderate', 'Evergreen', 'High fruit potential', 'Low', 'Moderate', 'Flower, foliage', 18, 1),
+    (31, 18, 2.0, 'light'),
 
-    ('Chestnut leaf oak', 'Quercus castaneifolia', '50-100\'', '30-60\'', 6, FALSE, FALSE, 'High', 'Very fast', 'Deciduous', 'High acorn potential', 'High', 'Low', 'Size, structure', 19, 1);
+    (32, 19, 4.0, 'overload'),
 
-INSERT INTO recommendedTrees VALUES
-    (3),
-    (5),
-    (9),
-    (12),
-    (15);
+    (33, 20, 2.5, 'moderate'),
+    (33, 21, 3.5, 'moderate'),
+    (33, 22, 4.5, 'heavy');

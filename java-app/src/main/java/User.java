@@ -1,4 +1,4 @@
-// ting li, April 4, 2025
+// Name: ting li
 public class User {
     private int uid;
     private String firstName;
@@ -10,15 +10,16 @@ public class User {
     private String neighborhood;
 
     // Constructor
-    public User(String firstName, String lastName, String email, String password, String zipCode,String role, String neighborhood) {
+    public User(String firstName, String lastName, String email, String password, String zipCode, String neighborhood) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
         this.zipCode = zipCode;
-        this.role = role;
+        this.role = "resident"; // default set, can be changed if the resident wants to be a volunteer.
         this.neighborhood = neighborhood;
     }
+
 
     // Getters and Setters
     public int getUid() {

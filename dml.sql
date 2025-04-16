@@ -3,15 +3,15 @@ INSERT INTO userRoles VALUES
     ('admin'),
     ('resident'),
     ('volunteer');
-
-INSERT INTO requestStatuses VALUES
+-- for permitstatus, volunteer apply status, tree request status
+INSERT INTO requestApplyStatuses VALUES
     ('submitted'),
-    ('pending'),
     ('approved'),
     ('rejected');
 
+
 INSERT INTO visitStatuses VALUES
-    ('pending'),
+    ('submitted'),
     ('scheduled'),
     ('completed'),
     ('canceled');
@@ -112,35 +112,35 @@ INSERT INTO users VALUES
 -- volunteer test data
 INSERT INTO volunteers VALUES
     (16, 'approved', 1),
-    (17, 'pending', 1),
+    (17, 'submitted', 1),
     (18, 'approved', 0),
     (19,'approved',1),
     (20,'approved',1),
-    (21,'approved',1),
+    (21,'rejected',0),
     (22,'approved',1),
     (23,'approved',1),
-    (24,'pending',1),
+    (24,'submitted',1),
     (25,'approved',1);
 
 -- permit test data
 INSERT INTO permits VALUES
     ('PRM-0001', 6, 'submitted', '2024-11-15'),
-    ('PRM-0002', 7, 'pending', '2024-12-01'),
+    ('PRM-0002', 7, 'submitted', '2024-12-01'),
     ('PRM-0003', 8, 'approved', '2023-10-21'),
     ('PRM-0004', 9, 'rejected', '2024-01-08'),
     ('PRM-0005', 10, 'submitted', '2025-01-15'),
     ('PRM-0006', 11, 'approved', '2023-07-03'),
-    ('PRM-0007', 12, 'pending', '2024-08-27'),
+    ('PRM-0007', 12, 'submitted', '2024-08-27'),
     ('PRM-0008', 13, 'submitted', '2023-12-19'),
     ('PRM-0009', 14, 'rejected', '2024-04-02'),
     ('PRM-0010', 15, 'approved', '2024-09-05'),
     ('PRM-0011', 6, 'submitted', '2024-03-14'),
     ('PRM-0012', 7, 'approved', '2024-05-22'),
-    ('PRM-0013', 8, 'pending', '2024-07-10'),
+    ('PRM-0013', 8, 'submitted', '2024-07-10'),
     ('PRM-0014', 9, 'submitted', '2023-11-11'),
     ('PRM-0015', 10, 'approved', '2024-02-03'),
     ('PRM-0016', 11, 'rejected', '2023-10-09'),
-    ('PRM-0017', 12, 'pending', '2024-06-30'),
+    ('PRM-0017', 12, 'submitted', '2024-06-30'),
     ('PRM-0018', 13, 'approved', '2024-04-14'),
     ('PRM-0019', 14, 'submitted', '2024-01-28'),
     ('PRM-0020', 15, 'rejected', '2023-09-19');
@@ -148,18 +148,18 @@ INSERT INTO permits VALUES
 -- treeRequest test data
 INSERT INTO treeRequests VALUES
     (1,6, '5545 Claremont Ave, Oakland', '2024-05-01', '510-555-1234', 50.00, 'owner', '94618', 'submitted', 'Fairview Park'),
-    (2,7, '5727 College Ave, Oakland', '2024-05-03', '510-555-5678', 0.00, 'tenant', '94618', 'pending', 'Rockridge'),
+    (2,7, '5727 College Ave, Oakland', '2024-05-03', '510-555-5678', 0.00, 'tenant', '94618', 'submitted', 'Rockridge'),
     (3,8, '560 59th St, Oakland, CA 94609', '2024-05-05', '510-555-9012', 100.00, 'property manager', '94609', 'approved', 'Bushrod'),
     (4,9, '5095 Telegraph Ave, Oakland', '2024-05-07', '510-555-3456', 25.00, 'owner', '94610', 'submitted', 'Temescal'),
     (5,10, '175 41st St, Oakland', '2024-05-08', '510-555-7890', 0.00, NULL, '94611', 'approved', 'Piedmont Avenue'),
     (6,11, '5849 San Pablo Ave, Oakland', '2024-05-10', '510-555-1111', 75.00, 'tenant', '94608', 'rejected', 'Golden Gate'),
-    (7,12, '1074 63rd St, Oakland', '2024-05-11', '510-555-2222', 60.00, 'owner', '94608', 'pending', 'Paradise Park'),
+    (7,12, '1074 63rd St, Oakland', '2024-05-11', '510-555-2222', 60.00, 'owner', '94608', 'submitted', 'Paradise Park'),
     (8,13, '1046 56th St, Oakland', '2024-05-13', '510-555-3333', 30.00, NULL, '94608', 'submitted', 'Gaskill'),
     (9,14, '5650 Market St, Oakland', '2024-05-14', '510-555-4444', 10.00, 'tenant', '94608', 'approved', 'Santa Fe'),
     (10,15, '4201 Market St, Oakland', '2024-05-15', '510-555-5555', 90.00, 'property manager', '94608', 'rejected', 'Longfellow'),
     (11,6, '3838 Telegraph Ave, Oakland', '2024-05-16', '510-555-6666', 110.00, 'owner', '94609', 'submitted', 'Mosswood'),
     (12,7, '1527 34th St, Oakland', '2024-05-17', '510-555-7777', 0.00, 'tenant', '94608', 'approved', 'Clawson'),
-    (13,8, '1800 Wood St, Oakland', '2024-05-18', '510-555-8888', 80.00, 'owner', '94607', 'pending', 'Prescott'),
+    (13,8, '1800 Wood St, Oakland', '2024-05-18', '510-555-8888', 80.00, 'owner', '94607', 'submitted', 'Prescott'),
     (14,9, '890 Brockhurst St rm 18, Oakland', '2024-05-19', '510-555-9999', 0.00, 'tenant', '94608', 'submitted', 'Hoover-Foster'),
     (15,10, '2311A Magnolia St, Oakland', '2024-05-20', '510-555-0000', 65.00, NULL, '94607', 'approved', 'McClymonds'),
     (16,11, '5849 San Pablo Ave, Oakland', '2024-05-12', '510-555-1111', 75.00, 'tenant', '94608', 'approved', 'Golden Gate'),

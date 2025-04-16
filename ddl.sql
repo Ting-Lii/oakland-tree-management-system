@@ -31,7 +31,7 @@ CREATE TABLE users(
 );
 
 -- lookup table for the request status
-CREATE TABLE requestStatuses(
+CREATE TABLE requestApplyStatuses(
     requestStatus VARCHAR(20) NOT NULL,
     CONSTRAINT PK_request_status PRIMARY KEY (requestStatus)
 );
@@ -44,7 +44,7 @@ CREATE TABLE volunteers(
     CONSTRAINT FK_volunteer_uid FOREIGN KEY (vid)
         REFERENCES users(uid) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT FK_volunteer_status FOREIGN KEY (applicationStatus)
-        REFERENCES requestStatuses(requestStatus) ON DELETE NO ACTION ON UPDATE NO ACTION
+        REFERENCES requestApplyStatuses(requestStatus) ON DELETE NO ACTION ON UPDATE NO ACTION
 );
 
 CREATE TABLE permits(
@@ -56,7 +56,7 @@ CREATE TABLE permits(
     CONSTRAINT FK_permit_uid FOREIGN KEY (rid)
         REFERENCES users(uid) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT FK_permit_status FOREIGN KEY (permitStatus)
-        REFERENCES requestStatuses(requestStatus) ON DELETE CASCADE ON UPDATE CASCADE
+        REFERENCES requestApplyStatuses(requestStatus) ON DELETE CASCADE ON UPDATE CASCADE
 
 );
 
@@ -75,7 +75,7 @@ CREATE TABLE treeRequests(
     CONSTRAINT FK_tree_request_uid FOREIGN KEY (rid)
         REFERENCES users(uid) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT FK_request_status FOREIGN KEY (requestStatus)
-        REFERENCES requestStatuses(requestStatus) ON DELETE NO ACTION ON UPDATE NO ACTION,
+        REFERENCES requestApplyStatuses(requestStatus) ON DELETE NO ACTION ON UPDATE NO ACTION,
     CONSTRAINT FK_request_neighborhood FOREIGN KEY (neighborhood)
         REFERENCES neighborhoods(name) ON DELETE SET NULL ON UPDATE CASCADE,
     CONSTRAINT CK_tree_request UNIQUE(streetAddress, dateSubmitted, phone),

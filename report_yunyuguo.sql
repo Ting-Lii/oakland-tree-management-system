@@ -61,16 +61,3 @@ ORDER BY neighborhood;
 
 
 
-SELECT
-    tr.neighborhood,
-    COUNT(DISTINCT ts.treeID) AS species_count,
-    MIN(ts.commonName) AS min_species,
-    MAX(ts.commonName) AS max_species,
-    MIN(tp.plantDate) AS firstPlantDate,
-    MAX(tp.plantDate) AS lastPlantDate
-FROM treeRequests tr
-         JOIN treePlantings tp ON tr.requestID = tp.requestID
-         JOIN treeSpecies ts ON tp.treePlanted = ts.treeID
-WHERE tr.neighborhood = 'Bushrod'
-  AND YEAR(tp.plantDate) BETWEEN 2023 AND 2025
-GROUP BY tr.neighborhood;

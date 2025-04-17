@@ -19,8 +19,8 @@ From treeRequests tr
 JOIN treePlantings tp ON tr.requestID = tp.requestID
 JOIN treeSpecies ts ON tp.treePlanted = ts.treeID
 LEFT JOIN treeToPlantingZones tpz ON ts.treeID = tpz.treeID
-WHERE tr.neighborhood = 'Bushrod'
--- WHERE tr.neighborhood = @neighborhoodName
+-- WHERE tr.neighborhood = 'Bushrod'
+WHERE tr.neighborhood = @neighborhoodName
     AND tr.neighborhood IN (
         SELECT DISTINCT tr2.neighborhood
         FROM treeRequests tr2
@@ -30,8 +30,8 @@ WHERE tr.neighborhood = 'Bushrod'
         GROUP BY tr2.neighborhood
         HAVING COUNT(DISTINCT tp2.treePlanted) >= 2
     )
-  AND YEAR(tp.plantDate) BETWEEN 2023  AND 2025
-  -- AND YEAR(tp.plantDate) BETWEEN @startYear AND @endYear
+  -- AND YEAR(tp.plantDate) BETWEEN 2023  AND 2025
+    AND YEAR(tp.plantDate) BETWEEN @startYear AND @endYear
 GROUP BY tr.neighborhood
 
 UNION
@@ -49,14 +49,13 @@ FROM treeRequests tr
 JOIN treePlantings tp ON tr.requestID = tp.requestID
 JOIN treeSpecies ts ON tp.treePlanted = ts.treeID
 LEFT JOIN treeToPlantingZones tpz ON ts.treeID = tpz.treeID
-WHERE tr.neighborhood = 'Bushrod'
-  -- WHERE tr.neighborhood = @neighborhoodName
-    AND tpz.plantingZoneFactor = 'Highly urbanized zones'
-  -- AND tpz.plantingZoneFactor = @plantingZoneFactor
-    AND YEAR(tp.plantDate) BETWEEN 2023  AND 2025
--- AND YEAR(tp.plantDate) BETWEEN @startYear AND @endYear
-GROUP BY tr.neighborhood
-ORDER BY neighborhood;
+-- WHERE tr.neighborhood = 'Bushrod'
+WHERE tr.neighborhood = @neighborhoodName
+    -- AND tpz.plantingZoneFactor = 'Highly urbanized zones'
+  AND tpz.plantingZoneFactor = @plantingZoneFactor
+    -- AND YEAR(tp.plantDate) BETWEEN 2023  AND 2025
+  AND YEAR(tp.plantDate) BETWEEN @startYear AND @endYear
+GROUP BY tr.neighborhood;
 
 
 

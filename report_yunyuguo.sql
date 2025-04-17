@@ -25,8 +25,8 @@ WHERE tr.neighborhood = @neighborhoodName
         SELECT DISTINCT tr2.neighborhood
         FROM treeRequests tr2
         JOIN treePlantings tp2 ON tr2.requestID = tp2.requestID
-        WHERE YEAR(tp2.plantDate) BETWEEN 2023 AND 2025
-        -- WHERE YEAR(tp2.plantDate) BETWEEN @startYear AND @endYear
+        -- WHERE YEAR(tp2.plantDate) BETWEEN 2023 AND 2025
+        WHERE YEAR(tp2.plantDate) BETWEEN @startYear AND @endYear
         GROUP BY tr2.neighborhood
         HAVING COUNT(DISTINCT tp2.treePlanted) >= 2
     )

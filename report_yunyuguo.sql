@@ -57,6 +57,34 @@ WHERE tr.neighborhood = @neighborhoodName
   AND YEAR(tp.plantDate) BETWEEN @startYear AND @endYear
 GROUP BY tr.neighborhood;
 
+-- Score Your Query
+-- Tables joined (1–2:0 points, ≥3:1 point)
+-- Both parts of the query join 4 tables. Score: +1
+
+-- Non-inner/natural join? (no:0 points, yes:1 point)
+-- Both parts use LEFT JOIN. Score: +1
+
+-- # of subqueries (0:0 points, 1:1 point, >2:2 points)
+-- Part 1 contains one subquery in the WHERE clause. Score: +1
+
+-- # queries comprising result via union/intersect (0:0 points, ≥1:1 point)
+-- The query uses UNION to combine the results of two SELECT statements. Score: +1
+
+-- Aggregate function(s) and grouping rows? (no:0 points, yes:1 point)
+-- Both parts use COUNT, MIN, MAX, GROUP_CONCAT and GROUP BY. Score: +1
+
+-- # WHERE/HAVING conditions not for joins (≤1:0 points, >1:1 point)
+-- Part 1 has WHERE condition (WHERE YEAR() BETWEEN) not related to join logic. Score: +1
+
+-- Non-aggregation functions or expressions in SELECT/WHERE? (no:0 points, yes:1 point)
+-- Both parts use the YEAR() function in the WHERE clause. Score: +1
+
+-- Strong motivation/justification for the query in the domain? (no:0 points, yes:1 point)
+-- The query summarizes a specific neighborhood within a date range, based on either having a certain planting tree species diversity (Part 1's subquery condition) or having used a specific planting zone factor (Part 2's condition).
+-- This query can be used to analyze requirement for urban forestry or planning.
+-- Score: +1
+
+-- Total Score = 8 points
 
 
 

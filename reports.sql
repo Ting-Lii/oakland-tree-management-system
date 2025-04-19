@@ -120,9 +120,9 @@ SELECT
      -- WHERE YEAR(tp_sub.plantDate) BETWEEN 2023 AND 2025) AS total_plantings_all_neighborhoods,
      WHERE YEAR(tp_sub.plantDate) BETWEEN @startYear AND @endYear) AS total_plantings_all_neighborhoods,
     (SELECT COUNT(DISTINCT tp_sub.treePlanted)
-FROM treePlantings tp_sub
-WHERE YEAR(tp_sub.plantDate) BETWEEN @startYear AND @endYear) AS total_species_all_neighborhoods
--- WHERE YEAR(tp_sub.plantDate) BETWEEN 2023 AND 2025) AS total_species_all_neighborhoods
+     FROM treePlantings tp_sub
+     WHERE YEAR(tp_sub.plantDate) BETWEEN @startYear AND @endYear) AS total_species_all_neighborhoods
+    -- WHERE YEAR(tp_sub.plantDate) BETWEEN 2023 AND 2025) AS total_species_all_neighborhoods
 FROM treeRequests tr
     JOIN treePlantings tp ON tr.requestID = tp.requestID
     JOIN treeSpecies ts ON tp.treePlanted = ts.treeID
@@ -156,9 +156,9 @@ SELECT
     NULL AS total_plantings, -- Placeholder to match the first part of total number of tree plantings
     NULL AS total_species_all_neighborhoods
 FROM treeRequests tr
-         JOIN treePlantings tp ON tr.requestID = tp.requestID
-         JOIN treeSpecies ts ON tp.treePlanted = ts.treeID
-         LEFT JOIN treeToPlantingZones tpz ON ts.treeID = tpz.treeID
+JOIN treePlantings tp ON tr.requestID = tp.requestID
+JOIN treeSpecies ts ON tp.treePlanted = ts.treeID
+LEFT JOIN treeToPlantingZones tpz ON ts.treeID = tpz.treeID
 -- WHERE tr.neighborhood = 'Bushrod'
 WHERE tr.neighborhood = @neighborhoodName
     -- AND tpz.plantingZoneFactor = 'Highly urbanized zones'

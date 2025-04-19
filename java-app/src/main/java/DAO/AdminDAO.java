@@ -1,4 +1,7 @@
-// Ting
+// ！！ still need to refactor, dont below as RA SQL use now
+package DAO;
+import util.DBConnection;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -75,7 +78,7 @@ public class AdminDAO {
     }
 
     // update sitevisits table. for the entered requestID, update aid (adminID which no need to enter), siteVisiteDate, visitStatus change to
-// completed, isUnderPowerline, minBedWidth, photoBefore.
+    // completed, isUnderPowerline, minBedWidth, photoBefore.
     public boolean updateSiteVisit(Scanner scanner, int adminID) {
         // subCmd1. schedule a site visit, which only update the chosen requestID's siteVisitDate and visitStatus to be 'scheduled'.
         // subCmd2. update the site visit information, which update the chosen requestID's siteVisitDate, visitStatus to be 'completed', isUnderPowerline, minBedWidth, photoBefore.
@@ -139,8 +142,33 @@ public class AdminDAO {
                     int rowsUpdated = stmt.executeUpdate();
                     if (rowsUpdated > 0) {
                         System.out.println("Site visit information completed successfully for Request ID: " + requestID);
+
+                        // After completing site visit, recommend trees
+                        System.out.println("Now recommend tree species for this site.");
+                        System.out.println("Enter tree species ID to recommend (enter 'q' to finish):");
+
+                        try (PreparedStatement insertStmt = conn.prepareStatement(
+                                "INSERT INTO recommendedTrees (requestID, treeID) VALUES (?, ?)")) {
+                            while (true) {
+                                String treeInput = scanner.nextLine().trim();
+                                if (treeInput.equalsIgnoreCase("q")) {
+                                    break;
+                                }
+                                try {
+                                    int treeID = Integer.parseInt(treeInput);
+                                    insertStmt.setInt(1, requestID);
+                                    insertStmt.setInt(2, treeID);
+                                    insertStmt.executeUpdate();
+                                    System.out.println("Recommended tree ID " + treeID + " added.");
+                                } catch (NumberFormatException e) {
+                                    System.out.println("Invalid tree ID. Please enter a number or 'q' to quit.");
+                                }
+                            }
+                        }
+
                         return true;
-                    } else {
+                    }
+                    else {
                         System.out.println("No matching tree request found for Request ID: " + requestID);
                         return false;
                     }
@@ -157,10 +185,58 @@ public class AdminDAO {
         }
     }
 
+    // Admin update treePlantings after completing site visit
+// If successful, immediately assign a volunteer to this planting
+    public boolean canUpdateTreePlantingAndAssignVolunteer(Scanner scanner, int adminID) {
+        try (Connection conn = DBConnection.getConnection()) {
+            System.out.println("Enter the request ID you want to update planting for:");
+            int requestID = Integer.parseInt(scanner.nextLine());
+
+            System.out.println("Enter tree species ID to be planted:");
+            int treeID = Integer.parseInt(scanner.nextLine());
+
+            System.out.println("Enter the planned planting date (YYYY-MM-DD):");
+            String plantDateStr = scanner.nextLine();
+            Date plantDate = Date.valueOf(plantDateStr);
+
+            // Insert planting info
+            String insertSQL = "INSERT INTO treePlantings (requestID, plantDate, aid, treePlanted) VALUES (?, ?, ?, ?)";
+            try (PreparedStatement stmt = conn.prepareStatement(insertSQL)) {
+                stmt.setInt(1, requestID);
+                stmt.setDate(2, plantDate);
+                stmt.setInt(3, adminID);
+                stmt.setInt(4, treeID);
+
+                int rowsInserted = stmt.executeUpdate();
+                if (rowsInserted > 0) {
+                    System.out.println("Tree planting info added successfully for Request ID: " + requestID);
+
+                    // Now prompt to assign a volunteer
+                    System.out.println("Please assign a volunteer to this tree planting.");
+                    System.out.println("Enter the Volunteer ID you want to assign:");
+                    int volunteerID = Integer.parseInt(scanner.nextLine());
+
+                    // Insert into volunteerPlants (initial workHour, workloadFeedback NULL)
+                    assignVolunteerToPlanting(conn, requestID, volunteerID);
+                    System.out.println("Volunteer " + volunteerID + " assigned to Request ID: " + requestID);
+
+                    return true;
+                } else {
+                    System.out.println("Failed to insert tree planting info.");
+                    return false;
+                }
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Error updating tree planting info:");
+            e.printStackTrace();
+            return false;
+        }
+    }
 
 
     // Assign an available volunteer to a specific tree request
-// This method assumes the admin has already completed the site visit.
+    // This method assumes the admin has already completed the site visit.
     public void assignVolunteerToRequest(Scanner scanner) {
         try (Connection conn = DBConnection.getConnection()) {
             // Step 1: Show all available volunteers
@@ -247,6 +323,23 @@ public class AdminDAO {
         }
     }
 
+    // Helper for assigning volunteer to volunteerPlants table
+    private void assignVolunteerToPlanting(Connection conn, int requestID, int volunteerID) throws SQLException {
+        String insert = "INSERT INTO volunteerPlants (requestID, vid, workHour, workloadFeedback) VALUES (?, ?, NULL, NULL)";
+        try (PreparedStatement stmt = conn.prepareStatement(insert)) {
+            stmt.setInt(1, requestID);
+            stmt.setInt(2, volunteerID);
+            stmt.executeUpdate();
+        }
+
+        // Update volunteer availability to FALSE
+        String update = "UPDATE volunteers SET isAvailable = FALSE WHERE vid = ?";
+        try (PreparedStatement stmt = conn.prepareStatement(update)) {
+            stmt.setInt(1, volunteerID);
+            stmt.executeUpdate();
+        }
+    }
+
     // Helper method: Get a list of all available volunteer IDs
     private List<Integer> getAvailableVolunteerIDs(Connection conn) throws SQLException {
         List<Integer> volunteerIDs = new ArrayList<>();
@@ -282,4 +375,6 @@ public class AdminDAO {
             stmt.executeUpdate();
         }
     }
+
+
 }

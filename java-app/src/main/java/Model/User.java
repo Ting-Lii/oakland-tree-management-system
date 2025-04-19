@@ -1,3 +1,5 @@
+package Model;
+
 // Name: ting li
 public class User {
     private int uid;

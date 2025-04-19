@@ -1,7 +1,9 @@
-// VolunteerDAO.java
+// !! dont USE BWLOW AS RA SQL now. NEED TO REFACTOR AND SOME PART IS NOT REQURIED IN TASKS.
+package DAO;
+
+import util.DBConnection;
 
 import java.sql.*;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -46,14 +48,13 @@ public class VolunteerDAO {
     // get all assigned tree requests and plantings infor for the volunteer
     // suppose the volunteer should see the address, phone number, plant date, and tree common name
     public void seeTreeRequestAndTreePlantingAndTreeSpecies(int vid) {
-
-        String sql = "SELECT tr.address, tr.phone, tp.plantDate, ts.commonName, vp.requestID " +
+        String sql = "SELECT tr.streetAddress, tr.phone, tp.plantDate, ts.commonName, vp.requestID " +
                 "FROM volunteerPlants vp " +
-                "JOIN treePlantings tp ON tp.plantID = vp.plantID " +
-                "JOIN treeRequests tr ON tr.requestID = tp.requestID " +
-                "JOIN siteVisits sv ON sv.requestNum = tr.requestID " +
-                "JOIN recommendedTrees rt ON rt.visitID = sv.siteVisitID " +
-                "JOIN treeSpecies ts ON ts.treeID = rt.treeID " +
+                "LEFT JOIN treePlantings tp ON tp.requestID = vp.requestID " +
+                "INNER JOIN treeRequests tr ON tr.requestID = tp.requestID " +
+                "INNER JOIN siteVisits sv ON sv.requestID = tr.requestID " +
+                "INNER JOIN recommendedTrees rt ON rt.requestID = sv.requestID " +
+                "INNER JOIN treeSpecies ts ON ts.treeID = rt.treeID " +
                 "WHERE vp.vid = ?";
 
         try (Connection conn = DBConnection.getConnection();
@@ -64,7 +65,7 @@ public class VolunteerDAO {
 
             System.out.println("===== Your Assigned Tree Tasks =====");
             while (rs.next()) {
-                String address = rs.getString("address");
+                String address = rs.getString("streetAddress");
                 String phone = rs.getString("phone");
                 Date plantDate = rs.getDate("plantDate");
                 String commonName = rs.getString("commonName");
@@ -81,6 +82,7 @@ public class VolunteerDAO {
             e.printStackTrace();
         }
     }
+
 
     // volunteer fill in planting info, the accroding tree species.inventory -= 1,
     // volunteerPlants vp Inner join treePlantings ON vp.requestID = tp.requestID INNER JOIN treeSpecies ts ON ts.treeID = tp.treeID, update ts.inventory -= 1

@@ -35,7 +35,7 @@ public class TaskC {
         System.out.println("Admin login successful.");
         int adminID = userDAO.getUserIdByEmail(email);
 
-        // 1. Admin查看所有submitted的tree request
+        // 1. Admin see all submitted tree requests
         while (true) {
             List<TreeRequest> submittedRequests = treeRequestDAO.getAllSubmittedTreeRequests();
             if (submittedRequests.isEmpty()) {

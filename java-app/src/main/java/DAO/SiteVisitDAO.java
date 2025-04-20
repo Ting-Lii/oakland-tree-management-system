@@ -4,6 +4,8 @@ import Model.SiteVisit;
 import util.DBConnection;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SiteVisitDAO {
 
@@ -50,28 +52,31 @@ public class SiteVisitDAO {
         }
     }
 
-    // Complete a SiteVisit (after real visit)
-    public boolean completeSiteVisit(SiteVisit siteVisit) {
-        String sql = "UPDATE siteVisits SET aid = ?, siteVisitDate = ?, visitStatus = ?, isUnderPowerLine = ?, minBedWidth = ?, photoBefore = ? WHERE requestID = ?";
+    // show all site visits for a specific admin
+    public void getAllAdminSiteVisits(int adminID) {
+        String sql = "SELECT requestID, siteVisitDate, visitStatus FROM siteVisits WHERE aid = ?";
 
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            stmt.setInt(1, siteVisit.getAid());
-            stmt.setDate(2, siteVisit.getSiteVisitDate());
-            stmt.setString(3, siteVisit.getVisitStatus());
-            stmt.setBoolean(4, siteVisit.isUnderPowerLine());
-            stmt.setInt(5, siteVisit.getMinBedWidth());
-            stmt.setString(6, siteVisit.getPhotoBefore());
-            stmt.setInt(7, siteVisit.getRequestID());
+            stmt.setInt(1, adminID);
+            try (ResultSet rs = stmt.executeQuery()) {
+                while (rs.next()) {
+                    int requestID = rs.getInt("requestID");
+                    Date siteVisitDate = rs.getDate("siteVisitDate");
+                    String visitStatus = rs.getString("visitStatus");
 
-            int rowsUpdated = stmt.executeUpdate();
-            return rowsUpdated > 0;
+                    System.out.println("Request ID: " + requestID +
+                            " | Visit Status: " + visitStatus +
+                            " | Visit Date: " + siteVisitDate);
+                }
+            }
 
         } catch (SQLException e) {
-            System.out.println("Error while completing site visit:");
+            System.out.println("Error fetching admin's site visits:");
             e.printStackTrace();
-            return false;
         }
     }
+
+
 }

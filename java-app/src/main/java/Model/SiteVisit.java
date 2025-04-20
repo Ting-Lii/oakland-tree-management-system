@@ -3,23 +3,22 @@ package Model;
 import java.sql.Date;
 
 public class SiteVisit {
+    private int requestID;
     private int aid;
     private Date siteVisitDate;
     private String visitStatus;
     private boolean isUnderPowerLine;
     private int minBedWidth;
     private String photoBefore;
-    private int requestID;
 
-    public SiteVisit(int aid, Date siteVisitDate, String visitStatus, boolean isUnderPowerLine,
-                     int minBedWidth, String photoBefore, int requestID) {
+    public SiteVisit(int requestID, int aid, Date siteVisitDate, String visitStatus, boolean isUnderPowerLine, int minBedWidth, String photoBefore) {
+        this.requestID = requestID;
         this.aid = aid;
         this.siteVisitDate = siteVisitDate;
         this.visitStatus = visitStatus;
         this.isUnderPowerLine = isUnderPowerLine;
         this.minBedWidth = minBedWidth;
         this.photoBefore = photoBefore;
-        this.requestID = requestID;
     }
 
     public int getAid() {

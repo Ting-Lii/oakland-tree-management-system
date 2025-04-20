@@ -5,10 +5,11 @@
 
 SELECT tr.neighborhood,
        ROUND(AVG(vp.workHour), 2) AS AverageWorkingHour,
-       COUNT(tp.requestID) AS treePlantedCount,
+       COUNT(DISTINCT tp.requestID) AS treePlantedCount,
        SUM(vp.workloadFeedback = 'overload') AS OverloadCount,
        ROUND(SUM(vp.workloadFeedback = 'overload')/COUNT(*), 2) AS OverloadRate
-FROM volunteerPlants vp INNER JOIN treePlantings tp ON vp.requestID = tp.requestID
+FROM volunteerPlants vp 
+    INNER JOIN treePlantings tp ON vp.requestID = tp.requestID
     INNER JOIN treeRequests tr ON tr.requestID = tp.requestID
     INNER JOIN neighborhoods n ON tr.neighborhood = n.name
 WHERE n.district = (
@@ -28,7 +29,7 @@ WHERE n.district = (
         )
     )
 GROUP BY tr.neighborhood
-HAVING COUNT(tp.requestID) > 1;
+HAVING COUNT(DISTINCT tp.requestID) > 1;
 
 -- sub query for report1(for checking purpose): select the district that has the highest planting work hours in total
 SELECT n2.district

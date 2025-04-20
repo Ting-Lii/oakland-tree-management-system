@@ -5,7 +5,7 @@
 
 SELECT tr.neighborhood,
        ROUND(AVG(vp.workHour), 2) AS AverageWorkingHour,
-       COUNT(tp.requestID) AS treePlantedCount,
+       COUNT(DISTINCT tp.requestID) AS treePlantedCount,
        SUM(vp.workloadFeedback = 'overload') AS OverloadCount,
        ROUND(SUM(vp.workloadFeedback = 'overload')/COUNT(*), 2) AS OverloadRate
 FROM volunteerPlants vp INNER JOIN treePlantings tp ON vp.requestID = tp.requestID
@@ -28,9 +28,11 @@ WHERE n.district = (
         )
     )
 GROUP BY tr.neighborhood
-HAVING COUNT(tp.requestID) > 1;
+HAVING COUNT(DISTINCT tp.requestID) > 1;
 
 -- 2. create a report about the most recommended tree species(common name) for all the neighborhood
+-- this might includes multiple tuples for one neighborhood because there might be equal number
+-- of recommendations of different tree species per each neighborhood
 SELECT n.name AS neighborhood, t2.commonName AS mostRecommendedTree
     FROM recommendedTrees rt2
     INNER JOIN treeSpecies t2 ON rt2.treeID = t2.treeID

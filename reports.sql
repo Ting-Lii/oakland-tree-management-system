@@ -59,7 +59,6 @@ ORDER BY n.name;
 -- Show the number of distinct tree species planted by neighborhood in a given year,
 -- only for neighborhoods where total planting events that year exceeded 2,
 -- including the number of volunteers involved in each neighborhood’s plantings.
--- time complexity:
 
 SELECT n.name AS neighborhood, COUNT(DISTINCT t.commonName) AS species_count, COUNT(DISTINCT vp.vid) AS total_volunteers
 FROM treePlantings tp
@@ -79,26 +78,26 @@ GROUP BY n.name;
 
 
 -- 4. justification/motivation: To help city planners make better planting decisions by identifying drought-tolerant trees that are suitable for hash planting zones
--- (e.g., windy, dry, or salty) but were never been requested to be planted by residents in any neighborhood over a specified time period.
+-- (has factor “Under harsh sites: windy, dry or salty”) but were never been requested to be planted by residents in tree planted neighborhood over a given time period (here use 2022- 2024).
 -- This helps close gaps in usage of suitable trees.
--- time complexity:
-SELECT t.commonName AS treeCommonName, n.name AS neighborhood
-FROM plantingZones pz
-    JOIN trees t ON pz.zoneID = t.zoneID
-    JOIN recommendedTrees rt ON rt.treeID = t.treeID
-    JOIN siteVisits sv ON sv.siteVisitID = rt.visitID
-    JOIN treeRequests tr ON sv.requestRefNum = tr.referenceNum
-    JOIN neighborhoods n ON n.name = tr.neighborhood
-WHERE pz.hashSites = 1
-AND NOT EXISTS (
+SELECT ts.commonName AS treeCommonName, n.name AS neighborhood
+FROM treeSpecies ts
+         INNER JOIN treeToPlantingZones ttpz ON ts.treeID = ttpz.treeID
+         INNER JOIN plantingZoneFactors pzf ON ttpz.plantingZoneFactor = pzf.factor
+         INNER JOIN recommendedTrees rt ON rt.treeID = ts.treeID
+         INNER JOIN siteVisits sv ON sv.requestID = rt.requestID
+         INNER JOIN treeRequests tr ON tr.requestID = sv.requestID
+         INNER JOIN neighborhoods n ON tr.neighborhood = n.name
+WHERE pzf.factor = 'Under harsh sites: windy, dry or salty'
+  AND NOT EXISTS (
     SELECT 1
     FROM treePlantings tp
-        JOIN treeRequests tr2 ON tp.requestRefNum = tr2.referenceNum
-    WHERE TRIM(LEADING ' ' FROM tp.treePlanted) = t.commonName
-    AND tr2.neighborhood = n.name
-    AND YEAR(tp.plantDate) BETWEEN 2022 AND 2024
+             INNER JOIN treeRequests tr2 ON tp.requestID = tr2.requestID
+    WHERE tp.treePlanted = ts.treeID
+      AND tr2.neighborhood = n.name
+      AND YEAR(tp.plantDate) BETWEEN 2022 AND 2025
 )
-GROUP BY t.commonName, n.name;
+GROUP BY ts.commonName, n.name;
 
 -- Yunyu Guo
 -- Part 1: For a neighborhood entered by the user, show the diversity of tree species planted in a given year,

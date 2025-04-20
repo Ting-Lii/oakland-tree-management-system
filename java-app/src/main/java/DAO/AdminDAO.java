@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class AdminDAO {
 
     /**
-     * Verify admin login by checking if user exists and has admin privilege.
+     * verify admin login by checking if user exists and has admin privilege.
      */
     public boolean isValidAdminLogin(String email, String password) {
         UserDAO userDAO = new UserDAO();
@@ -142,7 +142,7 @@ public class AdminDAO {
         }
     }
 
-    // Recommend one tree species
+    // recommend one tree species
     public void recommendOneTree(Scanner scanner, int requestID) {
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement("INSERT INTO recommendedTrees (requestID, treeID) VALUES (?, ?)");) {

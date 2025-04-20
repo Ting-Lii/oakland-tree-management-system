@@ -1,4 +1,5 @@
-package DAO;// ting li
+// ting li
+package DAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -37,7 +38,7 @@ public class UserDAO {
         String sql = "SELECT uid FROM users WHERE email = ?";
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
-                stmt.setString(1, email); // plug in email (first place holder)
+                stmt.setString(1, email);
                 var resRow = stmt.executeQuery();
                 if (resRow.next()) {
                     return resRow.getInt("uid");

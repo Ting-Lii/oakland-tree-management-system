@@ -1,11 +1,7 @@
 package DAO;
 
-import Model.SiteVisit;
 import util.DBConnection;
-
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class SiteVisitDAO {
 
@@ -39,7 +35,7 @@ public class SiteVisitDAO {
 
             stmt.setInt(1, requestID);
             stmt.setInt(2, adminID);
-            stmt.setDate(3, new java.sql.Date(System.currentTimeMillis())); // 默认今天
+            stmt.setDate(3, new java.sql.Date(System.currentTimeMillis())); // default today
             stmt.setString(4, "submitted"); //initilize status
 
             int rowsInserted = stmt.executeUpdate();
@@ -52,7 +48,7 @@ public class SiteVisitDAO {
         }
     }
 
-    // show all site visits for a specific admin
+    // show all site visits for this admin
     public void getAllAdminSiteVisits(int adminID) {
         String sql = "SELECT requestID, siteVisitDate, visitStatus FROM siteVisits WHERE aid = ?";
 

@@ -4,7 +4,6 @@ import DAO.SiteVisitDAO;
 import DAO.TreeRequestDAO;
 import DAO.UserDAO;
 import Model.TreeRequest;
-import util.DBConnection;
 
 import java.sql.Date;
 import java.util.List;
@@ -35,7 +34,6 @@ public class TaskC {
         System.out.println("Admin login successful.");
         int adminID = userDAO.getUserIdByEmail(email);
 
-        // 1. Admin see all submitted tree requests
         while (true) {
             List<TreeRequest> submittedRequests = treeRequestDAO.getAllSubmittedTreeRequests();
             if (submittedRequests.isEmpty()) {
@@ -66,12 +64,12 @@ public class TaskC {
             if (decision.equals("a")) {
                 boolean updated = treeRequestDAO.updateTreeRequestStatus(requestID, "approved");
                 if (updated) {
-                    System.out.println("✅ Tree request " + requestID + " approved.");
+                    System.out.println("Tree request " + requestID + " approved.");
 
                     // after approved, create an initial site visit record!
                     boolean inserted = siteVisitDAO.insertInitialSiteVisit(requestID, adminID);
                     if (inserted) {
-                        System.out.println("✅ Initial site visit record created for request ID: " + requestID);
+                        System.out.println("Initial site visit record created for request ID: " + requestID);
 
                         // ask if the admin wants to schedule the site visit now
                         System.out.println("Do you want to schedule the site visit for this request now? (y/n)");
@@ -83,20 +81,20 @@ public class TaskC {
 
                             boolean scheduled = siteVisitDAO.scheduleSiteVisit(requestID, adminID, siteVisitDate);
                             if (scheduled) {
-                                System.out.println("✅ Site visit scheduled successfully for Request ID: " + requestID);
+                                System.out.println("Site visit scheduled successfully for Request ID: " + requestID);
                             } else {
-                                System.out.println("❌ Failed to schedule site visit immediately.");
+                                System.out.println("Failed to schedule site visit immediately.");
                             }
                         } else {
                             System.out.println("You chose not to schedule the site visit now. You can schedule it later.");
                         }
 
                     } else {
-                        System.out.println("❌ Failed to create initial site visit record for request ID: " + requestID);
+                        System.out.println("Failed to create initial site visit record for request ID: " + requestID);
                     }
 
                 } else {
-                    System.out.println("❌ Failed to update tree request status.");
+                    System.out.println("Failed to update tree request status.");
                 }
 
             } else if (decision.equals("r")) {

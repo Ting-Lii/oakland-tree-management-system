@@ -1,4 +1,3 @@
-// !! dont USE BWLOW AS RA SQL now. NEED TO REFACTOR AND SOME PART IS NOT REQURIED IN TASKS.
 package DAO;
 
 import util.DBConnection;
@@ -8,6 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class VolunteerDAO {
+
     // volunteer login check
     public boolean canVolunteerLogin(String email, String password) {
         String sql = "SELECT * FROM users WHERE email = ? AND password = ? AND role = 'volunteer'";
@@ -26,6 +26,88 @@ public class VolunteerDAO {
         }
     }
 
+    // check if volunteer is assigned to the request
+    public boolean canFillTreePlanting(int requestID) {
+        String sql = "SELECT * FROM volunteerPlants WHERE requestID = ?";
+
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, requestID);
+            ResultSet rs = stmt.executeQuery();
+            return rs.next();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    // volunteer update photoAfter attribute in treePlantings table
+    public boolean canUpdatePhotoAfter(int requestID, String photoAfter) {
+        String sql = "UPDATE treePlantings SET photoAfter = ? WHERE requestID = ?";
+
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, photoAfter);
+            stmt.setInt(2, requestID);
+
+            return stmt.executeUpdate() > 0;
+
+        } catch (SQLException e) {
+            System.out.println("Error updating photoAfter in treePlantings:");
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+
+    // volunteer fill in planting info
+    public boolean canUpdateVolunteerPlant(int requestID, float workHour, String workloadFeedback) {
+        List<String> validFeedbacks = Arrays.asList("light", "moderate", "heavy", "overload");
+        if (!validFeedbacks.contains(workloadFeedback.toLowerCase())) {
+            System.out.println("Invalid workload feedback. Must be one of: " + validFeedbacks);
+            return false;
+        }
+
+        String sql = "UPDATE volunteerPlants SET workHour = ?, workloadFeedback = ? WHERE requestID = ?";
+
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setFloat(1, workHour);
+            stmt.setString(2, workloadFeedback.toLowerCase());
+            stmt.setInt(3, requestID);
+
+            return stmt.executeUpdate() > 0;
+
+        } catch (SQLException e) {
+            System.out.println("Error updating volunteer planting info:");
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    // get treeID from requestID
+    public int getTreeIDByRequestID(int requestID) {
+        String sql = "SELECT treePlanted FROM treePlantings WHERE requestID = ?";
+
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, requestID);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                return rs.getInt("treePlanted");
+            }
+            return -1; // not found
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return -1;
+        }
+    }
+
+    // apply as volunteer
     public boolean canApplyVolunteer(int vid) {
         String sql = "INSERT INTO volunteers (vid, applicationStatus, isAvailable) VALUES (?, 'submitted', TRUE)";
 
@@ -33,7 +115,6 @@ public class VolunteerDAO {
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setInt(1, vid);
-
             int rowsInserted = stmt.executeUpdate();
             return rowsInserted > 0;
 
@@ -44,9 +125,8 @@ public class VolunteerDAO {
         }
     }
 
-
-    // get all assigned tree requests and plantings infor for the volunteer
-    // suppose the volunteer should see the address, phone number, plant date, and tree common name
+    // ========= unused  method after refactor========
+    // see assigned tree tasks
     public void seeTreeRequestAndTreePlantingAndTreeSpecies(int vid) {
         String sql = "SELECT tr.streetAddress, tr.phone, tp.plantDate, ts.commonName, vp.requestID " +
                 "FROM volunteerPlants vp " +
@@ -83,39 +163,7 @@ public class VolunteerDAO {
         }
     }
 
-
-    // volunteer fill in planting info, the accroding tree species.inventory -= 1,
-    // volunteerPlants vp Inner join treePlantings ON vp.requestID = tp.requestID INNER JOIN treeSpecies ts ON ts.treeID = tp.treeID, update ts.inventory -= 1
-    // notice workload feedback: four options only: heavy, light, moderate, overload
-    public boolean updateVolunteerPlant(int requestID, int vid, float workHour, String workloadFeedback) {
-        List<String> validFeedbacks = Arrays.asList("light", "moderate", "heavy", "overload");
-        if (!validFeedbacks.contains(workloadFeedback.toLowerCase())) {
-            System.out.println("Invalid workload feedback. Must be one of: " + validFeedbacks);
-            return false;
-        }
-
-        String sql = "INSERT INTO volunteerPlants (requestID, vid, workHour, workloadFeedback) VALUES (?, ?, ?, ?)";
-
-        try (Connection conn = DBConnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
-
-            stmt.setInt(1, requestID);
-            stmt.setInt(2, vid);
-            stmt.setFloat(3, workHour);
-            stmt.setString(4, workloadFeedback.toLowerCase());
-
-            return stmt.executeUpdate() > 0;
-
-        } catch (SQLException e) {
-            System.out.println("Error inserting into volunteerPlants:");
-            e.printStackTrace();
-            return false;
-        }
-    }
-
-
-
-    // volunteer update their availability
+    // volunteer update availability
     public boolean updateVolunteerAvailability(int vid, boolean isAvailable) {
         String sql = "UPDATE volunteers SET isAvailable = ? WHERE vid = ?";
 
@@ -132,4 +180,3 @@ public class VolunteerDAO {
         }
     }
 }
-

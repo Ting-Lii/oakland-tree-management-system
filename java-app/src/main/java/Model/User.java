@@ -1,6 +1,5 @@
 package Model;
 
-// Name: ting li
 public class User {
     private int uid;
     private String firstName;
@@ -11,7 +10,6 @@ public class User {
     private String role;
     private String neighborhood;
 
-    // Constructor
     public User(String firstName, String lastName, String email, String password, String zipCode, String neighborhood) {
         this.firstName = firstName;
         this.lastName = lastName;

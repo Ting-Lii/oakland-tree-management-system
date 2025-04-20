@@ -9,6 +9,93 @@ import java.util.List;
 
 public class TreeRequestDAO {
 
+    /**
+     * Retrieve all uncompleted tree requests, showing requestID, siteVisitStatus, and days since submitted.
+     * Uncompleted = requestStatus = 'approved' AND photoAfter is NULL.
+     */
+    public void getAllUncompletedTreeRequestsAndDaysSinceSubmitted() {
+        String sql = "SELECT tr.requestID, sv.visitStatus, " +
+                "DATEDIFF(CURDATE(), tr.dateSubmitted) AS daysSinceSubmitted " +
+                "FROM treeRequests tr " +
+                "INNER JOIN siteVisits sv ON tr.requestID = sv.requestID " +
+                "LEFT JOIN treePlantings tp ON tr.requestID = tp.requestID " +
+                "WHERE tr.requestStatus = 'approved' " +
+                "AND (tp.photoAfter IS NULL OR tp.photoAfter = '')";
+
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()) {
+
+            System.out.println("===== Uncompleted Tree Requests (Including Days Since Submitted) =====");
+            while (rs.next()) {
+                int requestID = rs.getInt("requestID");
+                String visitStatus = rs.getString("visitStatus");
+                int daysSinceSubmitted = rs.getInt("daysSinceSubmitted");
+
+                System.out.println("Request ID: " + requestID +
+                        " | Visit Status: " + visitStatus +
+                        " | Days Since Submitted: " + daysSinceSubmitted + " days");
+            }
+            System.out.println("======================================================================");
+
+        } catch (SQLException e) {
+            System.out.println("Error retrieving uncompleted tree requests and days since submitted:");
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Retrieve trees planted based on neighborhood name or zip code.
+     * Join treeRequests, treePlantings, and treeSpecies.
+     */
+    public void seeTreesPlantedByNeighborhoodOrZipCode(String input, boolean isZipCode) {
+        String sql;
+
+        if (isZipCode) {
+            sql = "SELECT tr.requestID, tr.streetAddress, tr.reqZipCode, ts.commonName, tp.plantDate " +
+                    "FROM treeRequests tr " +
+                    "INNER JOIN treePlantings tp ON tr.requestID = tp.requestID " +
+                    "INNER JOIN treeSpecies ts ON tp.treePlanted = ts.treeID " +
+                    "WHERE tr.reqZipCode = ?";
+        } else {
+            sql = "SELECT tr.requestID, tr.streetAddress, tr.neighborhood, ts.commonName, tp.plantDate " +
+                    "FROM treeRequests tr " +
+                    "INNER JOIN treePlantings tp ON tr.requestID = tp.requestID " +
+                    "INNER JOIN treeSpecies ts ON tp.treePlanted = ts.treeID " +
+                    "WHERE tr.neighborhood = ?";
+        }
+
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, input);
+            ResultSet rs = stmt.executeQuery();
+
+            System.out.println("===== Trees Planted in Selected Area =====");
+            boolean found = false;
+            while (rs.next()) {
+                found = true;
+                int requestID = rs.getInt("requestID");
+                String streetAddress = rs.getString("streetAddress");
+                String commonName = rs.getString("commonName");
+                java.sql.Date plantDate = rs.getDate("plantDate");
+
+                System.out.println("Request ID: " + requestID +
+                        " | Address: " + streetAddress +
+                        " | Tree Species: " + commonName +
+                        " | Plant Date: " + plantDate);
+            }
+            if (!found) {
+                System.out.println("No trees planted found for your input.");
+            }
+            System.out.println("==========================================");
+
+        } catch (SQLException e) {
+            System.out.println("Error retrieving trees planted by area:");
+            e.printStackTrace();
+        }
+    }
+
     // submit a tree request (default 'submitted')
     public boolean canSubmitTreeRequest(int rid, TreeRequest treeRequest) {
         String sql = "INSERT INTO treeRequests (rid, streetAddress, dateSubmitted, phone, amountOfPayment, relationshipToProperty, reqZipCode, requestStatus, neighborhood) " +

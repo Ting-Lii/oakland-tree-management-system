@@ -164,24 +164,28 @@ INSERT INTO treeRequests VALUES
     (14,9, '890 Brockhurst St rm 18, Oakland', '2024-05-19', '510-555-9999', 0.00, 'tenant', '94608', 'submitted', 'Hoover-Foster'),
     (15,10, '2311A Magnolia St, Oakland', '2024-05-20', '510-555-0000', 65.00, NULL, '94607', 'approved', 'McClymonds'),
     (16,11, '5849 San Pablo Ave, Oakland', '2024-05-12', '510-555-1111', 75.00, 'tenant', '94608', 'approved', 'Golden Gate'),
-    (17,6,'1221 3rd St, Oakland','2025-01-20','510-555-1403',0.00,'tenant','94607','approved','Acorn Industrial'),
+    (17,6,'21 3rd St, Oakland','2025-01-20','510-555-1403',0.00,'tenant','94607','approved','Acorn Industrial'),
     (18,7,'1221 3rd St, Oakland','2025-02-22','510-555-1443',0.00,'tenant','94607','approved','Acorn Industrial'),
     (19,6, '890 Brockhurst St rm 18, Oakland', '2024-12-15', '510-555-1111', 50.0, 'Owner', '94608', 'approved', 'Hoover-Foster'),
     (20,7, '2311A Magnolia St, Oakland', '2024-12-20', '510-555-2222', 65.0, 'Tenant', '94607', 'approved', 'McClymonds'),
     (21,8, '1911 Union St, Oakland', '2025-01-03', '510-555-3333', 40.0, 'Owner', '94607', 'approved', 'Ralph Bunche'),
     (22,9, '1625 Filbert St, Oakland', '2025-01-10', '510-555-4444', 75.0, 'Property Manager', '94607', 'approved', 'Oak Center'),
     (23,10, '923 Adeline St, Oakland', '2025-02-01', '510-555-5555', 60.0, 'Tenant', '94607', 'approved', 'Acorn'),
-    (24,11, '1221 3rd St, Oakland', '2025-02-14', '510-555-6666', 55.0, 'Owner', '94607', 'approved', 'Acorn Industrial'),
+    (24,11, '12 3rd St, Oakland', '2025-02-14', '510-555-6666', 55.0, 'Owner', '94607', 'approved', 'Acorn Industrial'),
     (25,6,'560 59th St, Oakland','2024-09-09','510-132-4140',0.00,'owner','94609','approved','Bushrod'),
-    (26,7,'5095 Telegraph Ave, Oakland','2024-10-19','510-132-5140',0.00,'owner','94610','approved','Temescal'),
-    (27,15,'1074 63rd St, Oakland','2023-12-05','510-132-4040',0.00,'concerned neighbor','94608','approved','Paradise Park'),
+    (26,7,'95 Telegraph Ave, Oakland','2024-10-19','510-132-5140',0.00,'owner','94610','approved','Temescal'),
+    (27,15,'10 63rd St, Oakland','2023-12-05','510-132-4040',0.00,'concerned neighbor','94608','approved','Paradise Park'),
     (28,15,'1074 63rd St, Oakland','2022-10-21','510-132-4040',0.00,'concerned neighbor','94608','approved','Paradise Park'),
-    (29,15,'1074 63rd St, Oakland','2021-02-09','510-132-4040',0.00,'concerned neighbor','94608','approved','Paradise Park'),
+    (29,15,'74 63rd St, Oakland','2021-02-09','510-132-4040',0.00,'concerned neighbor','94608','approved','Paradise Park'),
     (30,13,'1800 Wood St, Oakland','2024-09-09','510-891-1240',0.00,'tenant','94607','approved','Prescott'),
-    (31,13,'560 59th St, Oakland','2024-12-12','510-891-1240',0.00,'concerned neighbor','94609','approved','Bushrod'),
-    (32,14,'560 59th St, Oakland','2025-01-09','510-555-4444',0.00,'concerned neighbor','94609','approved','Bushrod'),
-    (33,14,'560 59th St, Oakland','2021-04-09','510-555-4444',0.00,'concerned neighbor','94609','approved','Bushrod'),
-    (34,6,'560 59th St, Oakland','2024-05-09','510-132-4140',0.00,'concerned neighbor','94609','approved','Bushrod');
+    (31,13,'56 59th St, Oakland','2024-12-12','510-891-1240',0.00,'concerned neighbor','94609','approved','Bushrod'),
+    (32,14,'5600 59th St, Oakland','2025-01-09','510-555-4444',0.00,'concerned neighbor','94609','approved','Bushrod'),
+    (33,14,'5 59th St, Oakland','2021-04-09','510-555-4444',0.00,'concerned neighbor','94609','approved','Bushrod'),
+    (34,6,'6 59th St, Oakland','2023-05-09','510-132-4140',0.00,'concerned neighbor','94609','approved','Bushrod'),
+    (35,7,'50 Telegraph Ave, Oakland','2022-05-10','510-132-5140',0.00,'concerned neighbor','94610','approved','Temescal'),
+    (36,8,'15 Telegraph Ave, Oakland','2024-05-11','510-132-5140',0.00,'concerned neighbor','94610','approved','Temescal'),
+    (37,9,'19 Telegraph Ave, Oakland','2023-05-12','510-132-5140',0.00,'concerned neighbor','94610','approved','Temescal'),
+    (38,10,'10 Telegraph Ave, Oakland','2024-05-13','510-132-5140',0.00,'concerned neighbor','94610','approved','Temescal');
 
 
 -- site visit test data
@@ -281,15 +285,21 @@ INSERT INTO treePlantings VALUES
     (3,  '2025-01-12', 'https://picsum.photos/seed/plant3/600/400', 1, 1),
     (9,  '2025-02-08', 'https://picsum.photos/seed/plant9/600/400', 2, 2),
     (12, '2025-02-14', 'https://picsum.photos/seed/plant12/600/400', 3, 3),
-    (25, '2025-03-01', 'https://picsum.photos/seed/plant25/600/400', 4, 4),
-    (26, '2025-03-03', 'https://picsum.photos/seed/plant26/600/400', 5, 5),
-    (27, '2025-03-05', 'https://picsum.photos/seed/plant27/600/400', 1, 6),
-    (28, '2025-03-07', 'https://picsum.photos/seed/plant28/600/400', 1, 5),
-    (29, '2025-03-09', 'https://picsum.photos/seed/plant29/600/400', 3, 1),
-    (30, '2025-03-11', 'https://picsum.photos/seed/plant30/600/400', 2, 4),
+    (25, '2024-10-30', 'https://picsum.photos/seed/plant25/600/400', 4, 4),
+    (26, '2024-12-03', 'https://picsum.photos/seed/plant26/600/400', 5, 5),
+    (27, '2024-03-05', 'https://picsum.photos/seed/plant27/600/400', 1, 6),
+    (28, '2022-12-07', 'https://picsum.photos/seed/plant28/600/400', 1, 5),
+    (29, '2021-03-09', 'https://picsum.photos/seed/plant29/600/400', 3, 1),
+    (30, '2024-12-11', 'https://picsum.photos/seed/plant30/600/400', 2, 4),
     (31, '2025-03-13', 'https://picsum.photos/seed/plant31/600/400', 5, 2),
     (32, '2025-03-15', 'https://picsum.photos/seed/plant32/600/400', 5, 3),
-    (33, '2025-03-17', 'https://picsum.photos/seed/plant33/600/400', 4, 7);
+    (33, '2022-03-17', 'https://picsum.photos/seed/plant33/600/400', 4, 7),
+    (34, '2023-12-19', 'https://picsum.photos/seed/plant34/600/400', 3, 8),
+    (35, '2022-05-21', 'https://picsum.photos/seed/plant35/600/400', 2, 9),
+    (36, '2024-07-22', 'https://picsum.photos/seed/plant36/600/400', 1, 10),
+    (37, '2024-03-23', 'https://picsum.photos/seed/plant37/600/400', 3, 11),
+    (38, '2024-08-24', 'https://picsum.photos/seed/plant38/600/400', 2, 12);
+
 
 -- volunteerPlants test data
 INSERT INTO volunteerPlants VALUES

@@ -9,7 +9,7 @@ import DAO.UserDAO;
 import DAO.VolunteerDAO;
 import java.util.Scanner;
 
-public class taskF {
+public class TaskF {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         UserDAO userDAO = new UserDAO();

@@ -188,6 +188,38 @@ public class TreeRequestDAO {
         return requests;
     }
 
+    // Fetch all tree requests (for admin to review or delete)
+    public List<TreeRequest> getAllTreeRequests() {
+        List<TreeRequest> requests = new ArrayList<>();
+        String sql = "SELECT requestID, streetAddress, reqZipCode, amountOfPayment, " +
+                "relationshipToProperty, dateSubmitted, requestStatus, phone, neighborhood " +
+                "FROM treeRequests";
+
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()) {
+
+            while (rs.next()) {
+                TreeRequest tr = new TreeRequest(
+                        rs.getInt("requestID"),
+                        rs.getString("streetAddress"),
+                        rs.getString("reqZipCode"),
+                        rs.getFloat("amountOfPayment"),
+                        rs.getString("relationshipToProperty"),
+                        rs.getDate("dateSubmitted"),
+                        rs.getString("requestStatus"),
+                        rs.getString("phone"),
+                        rs.getString("neighborhood")
+                );
+                requests.add(tr);
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Error fetching approved tree requests:");
+            e.printStackTrace();
+        }
+        return requests;
+    }
 
 
     public boolean updateTreeRequestStatus(int requestID, String status) {

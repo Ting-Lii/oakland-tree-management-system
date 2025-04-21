@@ -231,3 +231,61 @@ CREATE TABLE recommendedTrees(
         -- if treeID is updated, update row automatically
         -- if a tree is deleted, delete recommendedTrees rows
 );
+
+DROP PROCEDURE IF EXISTS delete_a_treeRequest;
+DELIMITER //
+
+CREATE PROCEDURE delete_a_treeRequest(
+    IN treeRequestID INT,  -- id of the tree request
+    OUT status VARCHAR(500) -- message providing status of request
+)
+BEGIN
+    DECLARE row_count INT DEFAULT 0;
+    DECLARE siteVisits_deleted_count INT DEFAULT 0;
+    DECLARE treePlantings_deleted_count INT DEFAULT 0;
+    DECLARE recommendedTrees_deleted_count INT DEFAULT 0;
+    DECLARE volunteerPlants_deleted_count INT DEFAULT 0;
+
+    -- verify if the tree request exists
+    SELECT COUNT(requestID) INTO row_count
+        FROM treeRequests WHERE requestID = treeRequestID;
+
+    SET status = '';
+
+    IF row_count = 1 THEN -- this tree request exists
+        SELECT COUNT(requestID) INTO row_count
+            FROM siteVisits WHERE requestID = treeRequestID;
+
+        IF row_count = 1 THEN -- the related site visit exists, delete it
+            SET siteVisits_deleted_count = 1;
+            -- count the deleted rows in the recommendedTrees
+            SELECT COUNT(*) INTO recommendedTrees_deleted_count
+                FROM recommendedTrees WHERE requestID = treeRequestID;
+            DELETE FROM siteVisits WHERE requestID = treeRequestID;
+        end if;
+
+        SELECT COUNT(requestID) INTO row_count
+            FROM treePlantings WHERE requestID = treeRequestID;
+
+        IF row_count = 1 THEN -- the related tree planting event exists, delete it
+            SET treePlantings_deleted_count = 1;
+            -- count the deleted rows in the volunteerPlants
+            SELECT COUNT(*) INTO volunteerPlants_deleted_count
+                FROM volunteerPlants WHERE requestID = treeRequestID;
+            DELETE FROM treePlantings WHERE requestID = treeRequestID;
+        end if;
+
+        DELETE FROM treeRequests WHERE requestID = treeRequestID;
+
+        SET status = CONCAT(status, 'Deleted the tree request(id): ', treeRequestID,
+                            ', deleted count of rows in siteVisits: ', siteVisits_deleted_count,
+                            ', deleted count of rows in recommendedTrees: ', recommendedTrees_deleted_count,
+                            ', deleted count of rows in treePlantings: ', treePlantings_deleted_count,
+                            ', deleted count of rows in volunteerPlants: ', volunteerPlants_deleted_count
+                     );
+    ELSE
+        SET status = 'This tree request does not exist!';
+    end if;
+end //
+
+DELIMITER ;

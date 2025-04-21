@@ -28,10 +28,24 @@ public class TaskL_stored_procedure {
                         + " | Neighborhood: " + tr.getNeighborhood());
             }
 
-            System.out.println("Please enter the tree request ID you want to delete:");
             Scanner scanner = new Scanner(System.in);
-            int treeRequestID = Integer.parseInt(scanner.nextLine().trim());
-            adminDAO.deleteTreeRequest(treeRequestID);
+
+            while (true) {
+                System.out.println("Please enter the tree request ID you want to delete (or 'q' to quit):");
+                String input = scanner.nextLine().trim();
+
+                if (input.equalsIgnoreCase("q")) {
+                    System.out.println("Exiting Task L...");
+                    return;
+                }
+                try {
+                    int treeRequestID = Integer.parseInt(input);
+                    adminDAO.deleteTreeRequest(treeRequestID);
+                    return;
+                } catch (NumberFormatException e) {
+                    System.out.println("Invalid input. Please enter a valid request ID (integer) or 'q' to quit.");
+                }
+            }
         }
     }
 }

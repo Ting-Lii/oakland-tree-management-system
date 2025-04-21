@@ -113,16 +113,63 @@ public class ReportDAO {
         }
     }
 
+    /**
+     * Report 3: Distinct tree species planted and volunteer involvement in active neighborhoods for a given year.
+     */
+    public void getSpeciesAndVolunteerStatsByNeighborhood(int year) {
+        String sql = "SELECT n.name AS neighborhood, " +
+                "COUNT(DISTINCT ts.commonName) AS species_count, " +
+                "COUNT(DISTINCT vp.vid) AS total_volunteers " +
+                "FROM treePlantings tp " +
+                "INNER JOIN treeRequests tr ON tp.requestID = tr.requestID " +
+                "INNER JOIN neighborhoods n ON tr.neighborhood = n.name " +
+                "INNER JOIN treeSpecies ts ON tp.treePlanted = ts.treeID " +
+                "LEFT JOIN volunteerPlants vp ON vp.requestID = tp.requestID " +
+                "WHERE YEAR(tp.plantDate) = ? " +
+                "AND tr.neighborhood IN ( " +
+                "    SELECT tr2.neighborhood " +
+                "    FROM treePlantings tp2 " +
+                "    INNER JOIN treeRequests tr2 ON tp2.requestID = tr2.requestID " +
+                "    WHERE YEAR(tp2.plantDate) = ? " +
+                "    GROUP BY tr2.neighborhood " +
+                "    HAVING COUNT(tp2.treePlanted) >= 2 " +
+                ") " +
+                "GROUP BY n.name";
+
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, year);
+            stmt.setInt(2, year);
+
+            ResultSet rs = stmt.executeQuery();
+
+            System.out.println("===== Tree Species and Volunteer Stats by Neighborhood (" + year + ") ======");
+            while (rs.next()) {
+                String neighborhood = rs.getString("neighborhood");
+                int speciesCount = rs.getInt("species_count");
+                int volunteerCount = rs.getInt("total_volunteers");
+
+                System.out.println("Neighborhood: " + neighborhood);
+                System.out.println("Distinct Tree Species Planted: " + speciesCount);
+                System.out.println("Total Volunteers: " + volunteerCount);
+                System.out.println("--------------------------------------------");
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Error generating Species and Volunteer Report:");
+            e.printStackTrace();
+        }
+    }
+
+
 
     /**
-     * Report 3: Find drought-tolerant trees never requested in tree planted happened neighborhoods.
+     * Report 4: Find drought-tolerant trees never requested in tree planted happened neighborhoods.
      */
     /**
      * Find drought-tolerant trees (suitable for harsh sites) that were recommended but never planted
      * in any neighborhood between the specified start year and end year.
-     *
-     * @param startYear Starting year (inclusive)
-     * @param endYear Ending year (inclusive)
      */
     public void getDroughtTolerantTreesNotPlantedInNeighborhood(int startYear, int endYear) {
         String sql = "SELECT ts.commonName AS treeCommonName, n.name AS neighborhood " +
@@ -167,4 +214,91 @@ public class ReportDAO {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Report 5: Tree diversity and planting zone factors by neighborhood and year range.
+     */
+    public void getNeighborhoodTreeDiversity(String neighborhoodName, int startYear, int endYear, String plantingZoneFactor) {
+        String sql = "SELECT tr.neighborhood, " +
+                "COUNT(DISTINCT ts.treeID) AS species_count, " +
+                "MIN(ts.commonName) AS min_species, " +
+                "MAX(ts.commonName) AS max_species, " +
+                "MIN(tp.plantDate) AS firstPlantDate, " +
+                "MAX(tp.plantDate) AS lastPlantDate, " +
+                "GROUP_CONCAT(DISTINCT tpz.plantingZoneFactor) AS planting_zone_factors, " +
+                "(SELECT COUNT(*) FROM treePlantings tp_sub WHERE YEAR(tp_sub.plantDate) BETWEEN ? AND ?) AS total_plantings_all_neighborhoods, " +
+                "(SELECT COUNT(DISTINCT tp_sub.treePlanted) FROM treePlantings tp_sub WHERE YEAR(tp_sub.plantDate) BETWEEN ? AND ?) AS total_species_all_neighborhoods " +
+                "FROM treeRequests tr " +
+                "JOIN treePlantings tp ON tr.requestID = tp.requestID " +
+                "JOIN treeSpecies ts ON tp.treePlanted = ts.treeID " +
+                "LEFT JOIN treeToPlantingZones tpz ON ts.treeID = tpz.treeID " +
+                "WHERE tr.neighborhood = ? " +
+                "AND tr.neighborhood IN ( " +
+                "SELECT tr2.neighborhood " +
+                "FROM treeRequests tr2 " +
+                "JOIN treePlantings tp2 ON tr2.requestID = tp2.requestID " +
+                "WHERE YEAR(tp2.plantDate) BETWEEN ? AND ? " +
+                "GROUP BY tr2.neighborhood " +
+                "HAVING COUNT(DISTINCT tp2.treePlanted) >= 2 " +
+                ") " +
+                "AND YEAR(tp.plantDate) BETWEEN ? AND ? " +
+                "GROUP BY tr.neighborhood " +
+                "UNION " +
+                "SELECT tr.neighborhood, " +
+                "COUNT(DISTINCT ts.treeID) AS species_count, " +
+                "MIN(ts.commonName) AS min_species, " +
+                "MAX(ts.commonName) AS max_species, " +
+                "MIN(tp.plantDate) AS firstPlantDate, " +
+                "MAX(tp.plantDate) AS lastPlantDate, " +
+                "GROUP_CONCAT(DISTINCT tpz.plantingZoneFactor) AS planting_zone_factors, " +
+                "NULL AS total_plantings_all_neighborhoods, " +
+                "NULL AS total_species_all_neighborhoods " +
+                "FROM treeRequests tr " +
+                "JOIN treePlantings tp ON tr.requestID = tp.requestID " +
+                "JOIN treeSpecies ts ON tp.treePlanted = ts.treeID " +
+                "LEFT JOIN treeToPlantingZones tpz ON ts.treeID = tpz.treeID " +
+                "WHERE tr.neighborhood = ? " +
+                "AND tpz.plantingZoneFactor = ? " +
+                "AND YEAR(tp.plantDate) BETWEEN ? AND ? " +
+                "GROUP BY tr.neighborhood";
+
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, startYear);
+            stmt.setInt(2, endYear);
+            stmt.setInt(3, startYear);
+            stmt.setInt(4, endYear);
+            stmt.setString(5, neighborhoodName);
+            stmt.setInt(6, startYear);
+            stmt.setInt(7, endYear);
+            stmt.setInt(8, startYear);
+            stmt.setInt(9, endYear);
+            stmt.setString(10, neighborhoodName);
+            stmt.setString(11, plantingZoneFactor);
+            stmt.setInt(12, startYear);
+            stmt.setInt(13, endYear);
+
+            ResultSet rs = stmt.executeQuery();
+
+            System.out.println("===== Tree Diversity Report for Neighborhood: " + neighborhoodName + " (" + startYear + "-" + endYear + ") =====");
+            while (rs.next()) {
+                System.out.println("Neighborhood: " + rs.getString("neighborhood"));
+                System.out.println("Species Count: " + rs.getInt("species_count"));
+                System.out.println("Least Planted Species: " + rs.getString("min_species"));
+                System.out.println("Most Planted Species: " + rs.getString("max_species"));
+                System.out.println("First Planting Date: " + rs.getDate("firstPlantDate"));
+                System.out.println("Last Planting Date: " + rs.getDate("lastPlantDate"));
+                System.out.println("Planting Zone Factors: " + rs.getString("planting_zone_factors"));
+                System.out.println("Total Plantings (All Neighborhoods): " + rs.getString("total_plantings_all_neighborhoods"));
+                System.out.println("Total Species (All Neighborhoods): " + rs.getString("total_species_all_neighborhoods"));
+                System.out.println("----------------------------------------");
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Error retrieving Neighborhood Tree Diversity:");
+            e.printStackTrace();
+        }
+    }
+
 }

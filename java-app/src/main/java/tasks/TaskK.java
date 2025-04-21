@@ -12,8 +12,10 @@ public class TaskK {
         ReportDAO reportDAO = new ReportDAO();
 
         System.out.println("Welcome Admin! This is Task K - Administrative Reports.");
-        System.out.println("Enter '1' for Volunteer Workload Report, '2' for Most Recommended Trees per Neighborhood, '3' for Unused Drought-Tolerant Trees, or 'q' to quit:");
-
+        System.out.println("Enter '1' for Volunteer Workload Report,");
+        System.out.println(" '2' to get the most recommended tree species per neighborhood within a specified district, ");
+        System.out.println("'3' for get unused Drought-Tolerant Trees species with a specified year range in tree planted neighborhood," );
+        System.out.println("or 'q' to quit:");
         while (true) {
             String input = scanner.nextLine().trim();
             if (input.equalsIgnoreCase("q")) {
@@ -28,7 +30,9 @@ public class TaskK {
                     break;
                 case "2":
                     // Report 2: Most recommended tree species per neighborhood
-                    reportDAO.getMostRecommendedTreePerNeighborhood();
+                    System.out.println("Enter the district name to get the most recommended trees (e.g. West Oakland):");
+                    String district = scanner.nextLine().trim();
+                    reportDAO.getMostRecommendedTreePerNeighborhoodByDistrict(district);
                     break;
                 case "3":
                     // Report 3: Unused drought-tolerant tree species in harsh planting zones

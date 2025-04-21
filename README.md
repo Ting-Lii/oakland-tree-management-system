@@ -18,18 +18,18 @@ This project is a Java application designed to manage tree planting activities i
 ## How to Compile, Configure, and Run 
 
 **Video Annotated Walkthrough** 
-https://www.youtube.com/watch?v=nFkws1s8MGk
+*  https://www.youtube.com/watch?v=nFkws1s8MGk
 
-*   **`/DockerSetUp`**: Defines the steps to build a Docker image for the Java application. This typically involves:
+*   **`DockerSetUp`**: Defines the steps to build a Docker image for the Java application. This typically involves:
     1.  Using MySQL image in Docker.
     2.  Create a container and input port number, setting environment variables for `MYSQL_ROOT_PASSWORD` and set password to yes.
     3. Copy the root password for later use.
-*   **`/DataGripSetUp`**: 
+*   **`DataGripSetUp`**: 
     1.  Create a data source using root as user, inputing root passowrd and port number. 
     2.  Create databases `tree` and new user `tree.reporter`, generate password, grand all previlidges to `tree.reporter`.
     3.  Create a new data source using tree.reporter as user, input port number, specify to use the `tree` database, use the password generated from last step. 
     4.  Copy the url for later use.
-*   **`/JavaSetUp`**:
+*   **`JavaSetUp`**:
     1. cd to DBConnection.java
     2. use the url copied from last step, input user `tree.reporter` and password from last step.
 

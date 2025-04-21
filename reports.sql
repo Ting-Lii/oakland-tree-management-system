@@ -101,6 +101,7 @@ WHERE pzf.factor = 'Under harsh sites: windy, dry or salty'
 GROUP BY ts.commonName, n.name;
 
 -- Yunyu Guo
+-- This report analyzes tree species diversity and planting zone factors for a specified neighborhood and year range
 -- Part 1: For a neighborhood entered by the user, show the diversity of tree species planted in a given year,
 -- including the minimum and maximum tree species, associated planting zone factors,
 -- filtering the neighborhoods with at least 2 species planted in the given year.

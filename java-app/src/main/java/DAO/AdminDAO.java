@@ -234,6 +234,28 @@ public class AdminDAO {
         }
     }
 
+    public void deleteTreeRequest(int requestID) {
+        try (Connection conn = DBConnection.getConnection()){
+            CallableStatement stmt = conn.prepareCall("{ call delete_a_treeRequest(?, ?) }");
+
+            // set the input
+            stmt.setInt(1, requestID);
+            // register the output parameter
+            stmt.registerOutParameter(2, java.sql.Types.VARCHAR);
+            // execute the stored procedure
+            stmt.execute();
+            // get the return status message
+            String status = stmt.getString(2);
+            System.out.println("Status: " + status);
+
+            stmt.close();
+
+        } catch (SQLException e) {
+            System.out.println("Error deleting tree request:");
+            e.printStackTrace();
+        }
+    }
+
     // --- Helper Methods Below ---
 
     private PreparedStatement getPendingVolunteersStatement(Connection conn) throws SQLException {

@@ -1,7 +1,6 @@
 package tasks;
 
 import DAO.TreeSpeciesDAO;
-
 import java.util.Scanner;
 
 /**
@@ -13,13 +12,26 @@ import java.util.Scanner;
 public class TaskJ {
     public static void main(String[] args) {
         TreeSpeciesDAO treeSpeciesDAO = new TreeSpeciesDAO();
-
-        System.out.println("Welcome to task J, you can see some relevant statistics of trees species planted in Oakland.");
-        // for simplicity, we skip user login
-        System.out.println("Please enter the tree species ID you want to search for:");
         Scanner scanner = new Scanner(System.in);
-        int treeID = Integer.parseInt(scanner.nextLine().trim());
-        treeSpeciesDAO.getTreeStatistics(treeID);
 
+        System.out.println("Welcome to Task J! You can see some relevant statistics of tree species planted in Oakland.");
+
+        while (true) {
+            System.out.println("Please enter the tree species ID you want to search for (or 'q' to quit):");
+            String input = scanner.nextLine().trim();
+
+            if (input.equalsIgnoreCase("q")) {
+                System.out.println("Exiting Task J...");
+                return;
+            }
+
+            try {
+                int treeID = Integer.parseInt(input);
+                treeSpeciesDAO.getTreeStatistics(treeID);
+                return;
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Please enter a valid tree species ID (integer) or 'q' to quit.");
+            }
+        }
     }
 }

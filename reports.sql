@@ -54,32 +54,33 @@ HAVING COUNT(*) = (
 )
 ORDER BY n.name;
 
--- 3. justification/motivation: we want to track tree species and volunteer number impact in actively planting neighborhood.
--- PS: the current result is empty table as no valid row yet; we temporarily set given year is 2023.
+-- Ting Li
+-- 3. justification/motivation: we want to track tree species and volunteer number impact in actively planting neighborhood in a given year.
+-- PS: we temporarily set given year is 2025. In app, user input a year.
 -- Show the number of distinct tree species planted by neighborhood in a given year,
 -- only for neighborhoods where total planting events that year exceeded 2,
 -- including the number of volunteers involved in each neighborhood’s plantings.
-
-SELECT n.name AS neighborhood, COUNT(DISTINCT t.commonName) AS species_count, COUNT(DISTINCT vp.vid) AS total_volunteers
+SELECT n.name AS neighborhood, COUNT(DISTINCT tS.commonName) AS species_count, COUNT(DISTINCT vp.vid) AS total_volunteers
 FROM treePlantings tp
-    JOIN treeRequests tr ON tp.requestRefNum = tr.referenceNum
-    JOIN neighborhoods n ON tr.neighborhood = n.name
-    JOIN trees t ON TRIM(LEADING ' ' FROM tp.treePlanted) = t.commonName
-    LEFT JOIN volunteerPlants vp ON vp.plantID = tp.plantID -- some tree planting might have no volunteer
-WHERE YEAR(tp.plantDate) = 2023 AND tr.neighborhood IN (
+    INNER JOIN treeRequests tr ON tp.requestID = tr.requestID
+    INNER JOIN neighborhoods n ON tr.neighborhood = n.name
+    INNER JOIN treeSpecies ts ON TRIM(LEADING ' ' FROM tp.treePlanted) = ts.treeID
+    LEFT JOIN volunteerPlants vp ON vp.requestID = tp.requestID -- some tree planting might have no volunteer yet
+WHERE YEAR(tp.plantDate) = 2025 AND tr.neighborhood IN (
     SELECT tr2.neighborhood
     FROM treePlantings tp2
-        JOIN treeRequests tr2 ON tp2.requestRefNum = tr2.referenceNum
-    WHERE YEAR(tp2.plantDate) = 2023
+        INNER JOIN treeRequests tr2 ON tp2.requestID = tr2.requestID
+    WHERE YEAR(tp2.plantDate) = 2025
     GROUP BY tr2.neighborhood
-    HAVING COUNT(tp2.plantID) >= 2
+    HAVING COUNT(tp2.treePlanted) >= 2
 )
 GROUP BY n.name;
 
-
+-- Ting Li
 -- 4. justification/motivation: To help city planners make better planting decisions by identifying drought-tolerant trees that are suitable for hash planting zones
 -- (has factor “Under harsh sites: windy, dry or salty”) but were never been requested to be planted by residents in tree planted neighborhood over a given time period (here use 2022- 2024).
--- This helps close gaps in usage of suitable trees.
+-- This helps close gaps in usage of drought tolerance trees to potentially save more water.
+-- PS: we temporarily set given year range is between 2022 and 2025. In app, user input the year range.
 SELECT ts.commonName AS treeCommonName, n.name AS neighborhood
 FROM treeSpecies ts
          INNER JOIN treeToPlantingZones ttpz ON ts.treeID = ttpz.treeID

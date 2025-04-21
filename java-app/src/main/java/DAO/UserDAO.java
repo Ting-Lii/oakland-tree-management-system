@@ -1,7 +1,12 @@
 // ting li
+package DAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import util.DBConnection;
+import Model.User;
+import util.DBConnection;
+
 // for standard and safety, we should use DAO here for database operations.
 // we create CURD operations here.
 public class UserDAO {
@@ -29,11 +34,11 @@ public class UserDAO {
         }
     }
 
-    public int getUserIdByEmail(String email) {
+    public static int getUserIdByEmail(String email) {
         String sql = "SELECT uid FROM users WHERE email = ?";
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
-                stmt.setString(1, email); // plug in email (first place holder)
+                stmt.setString(1, email);
                 var resRow = stmt.executeQuery();
                 if (resRow.next()) {
                     return resRow.getInt("uid");

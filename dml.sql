@@ -3,6 +3,7 @@ INSERT INTO userRoles VALUES
     ('admin'),
     ('resident'),
     ('volunteer');
+
 -- for permitstatus, volunteer apply status, tree request status
 INSERT INTO requestApplyStatuses VALUES
     ('submitted'),

@@ -61,44 +61,54 @@ public class ReportDAO {
     }
 
     /**
-     * Report 2: Find the most recommended tree species per neighborhood.
+     * Report 2: Find the most recommended tree species per neighborhood within a selected district.
      */
-    public void getMostRecommendedTreePerNeighborhood() {
+    public void getMostRecommendedTreePerNeighborhoodByDistrict(String districtName) {
         String sql = "SELECT n.name AS neighborhood, t2.commonName AS mostRecommendedTree\n" +
                 "FROM recommendedTrees rt2\n" +
                 "INNER JOIN treeSpecies t2 ON rt2.treeID = t2.treeID\n" +
                 "INNER JOIN siteVisits sv2 ON rt2.requestID = sv2.requestID\n" +
                 "INNER JOIN treeRequests tr2 ON tr2.requestID = sv2.requestID\n" +
                 "INNER JOIN neighborhoods n ON n.name = tr2.neighborhood\n" +
+                "WHERE n.district = ?\n" +
                 "GROUP BY n.name, t2.commonName\n" +
                 "HAVING COUNT(*) = (\n" +
                 "    SELECT MAX(tree_count)\n" +
                 "    FROM (\n" +
-                "        SELECT rt3.treeID, COUNT(*) AS tree_count\n" +
+                "        SELECT n2.name AS neighborhood, rt3.treeID, COUNT(*) AS tree_count\n" +
                 "        FROM recommendedTrees rt3\n" +
                 "        INNER JOIN siteVisits sv3 ON rt3.requestID = sv3.requestID\n" +
                 "        INNER JOIN treeRequests tr3 ON tr3.requestID = sv3.requestID\n" +
                 "        INNER JOIN neighborhoods n2 ON tr3.neighborhood = n2.name\n" +
-                "        WHERE n2.name = n.name\n" +
-                "        GROUP BY rt3.treeID\n" +
+                "        GROUP BY n2.name, rt3.treeID\n" +
                 "    ) AS subquery\n" +
+                "    WHERE subquery.neighborhood = n.name\n" +
                 ")\n" +
                 "ORDER BY n.name;";
 
         try (Connection conn = DBConnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql);
-             ResultSet rs = stmt.executeQuery()) {
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            System.out.println("===== Most Recommended Trees by Neighborhood =====");
+            stmt.setString(1, districtName);
+
+            ResultSet rs = stmt.executeQuery();
+
+            System.out.println("===== Most Recommended Trees in District: " + districtName + " =====");
+            boolean found = false;
             while (rs.next()) {
                 String neighborhood = rs.getString("neighborhood");
                 String treeName = rs.getString("mostRecommendedTree");
 
                 System.out.println("Neighborhood: " + neighborhood + " | Most Recommended Tree: " + treeName);
+                found = true;
             }
+            if (!found) {
+                System.out.println("No recommended trees found for this district.");
+            }
+            System.out.println("============================================================");
 
         } catch (SQLException e) {
-            System.out.println("Error retrieving Most Recommended Trees:");
+            System.out.println("Error retrieving Most Recommended Trees by district:");
             e.printStackTrace();
         }
     }

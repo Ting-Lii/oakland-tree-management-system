@@ -296,8 +296,8 @@ INSERT INTO treePlantings VALUES
     (34, '2023-12-19', 'https://picsum.photos/seed/plant34/600/400', 3, 8),
     (35, '2022-05-21', 'https://picsum.photos/seed/plant35/600/400', 2, 9),
     (36, '2024-07-22', 'https://picsum.photos/seed/plant36/600/400', 1, 10),
-    (37, '2024-03-23', 'https://picsum.photos/seed/plant37/600/400', 3, 11),
-    (38, '2024-08-24', 'https://picsum.photos/seed/plant38/600/400', 2, 12);
+    (37, '2024-03-23', 'https://picsum.photos/seed/plant37/600/400', 3, 1),
+    (38, '2024-08-24', 'https://picsum.photos/seed/plant38/600/400', 2, 2);
 
 
 -- volunteerPlants test data

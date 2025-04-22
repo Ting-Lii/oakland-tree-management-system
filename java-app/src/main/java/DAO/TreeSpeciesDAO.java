@@ -36,12 +36,11 @@ public class TreeSpeciesDAO {
     }
 
     // admin add a new tree species into treeSpecies table
-    public void addTreeSpecies() {
-        Scanner scanner = new Scanner(System.in);
+    public void addTreeSpecies(Scanner scanner) {
         System.out.println("Adding a new tree species. Please enter the following information:");
 
         try (Connection conn = DBConnection.getConnection()) {
-            conn.setAutoCommit(false); // 事务开始
+            conn.setAutoCommit(false);
 
             String sql = "INSERT INTO treeSpecies (commonName, scientificName, minHeight, maxHeight, minWidth, maxWidth, minPlantingBedWidth, " +
                     "isPlantableUnderPowerLines, isCaNative, droughtTolerance, growthRate, foliageType, debris, rootDamagePotential, nurseryAvailability, visualAttraction, inventory) " +

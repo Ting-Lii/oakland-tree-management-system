@@ -27,7 +27,7 @@ public class TaskG {
 
             switch (input) {
                 case "1":
-                    treeSpeciesDAO.addTreeSpecies();
+                    treeSpeciesDAO.addTreeSpecies(scanner);
                     break;
                 case "2":
                     treeSpeciesDAO.deleteTreeSpecies();

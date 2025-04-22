@@ -7,7 +7,7 @@ public class DBConnection {
     public static Connection getConnection() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver"); // ensure MySQL driver loads
-
+            // set up the connection before you run!
             String url = ""; //please use your own
             String user = ""; //please use your own
             String password = ""; //please use your own

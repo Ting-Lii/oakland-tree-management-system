@@ -1,4 +1,8 @@
-# Final Project Group 6 - Tree Planting Management System
+# Course Database Management Final Project - Tree Planting Management System for Oakland Tree Organization
+
+## Credits
+Developed with [@Siyuan Liu](https://github.com/Cathenax) and [@Yunyu Guo](https://github.com/yguo005) as part of a group project.
+Please see more contribution details in 'report.pdf'.
 
 ## Project Overview
 
